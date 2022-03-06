@@ -52,7 +52,7 @@
                                 <div class="form-group select-style select-style-icon">
                                     <select class="form-control form-icons select-active" name="categoryId">
                                         @foreach ($categories AS $c)
-                                            <option>{{$c->categoryName}}
+                                            <option value="{{$c->id}}">{{$c->categoryName}}
                                         @endforeach
                                     </select>
                                     <i class="fi-rr-briefcase"></i>
@@ -83,7 +83,20 @@
                                         <option value="halfTime">Zkrácený úvazek</option>
                                         <option value="parttime">Brigáda</option>
                                         <option value="freelance">Freelance</option>
+                                        <option value="time2time">Nárazová výpomoc</option>
                                         <option value="personal">Výpomoc v domácnostech / soukromé inzeráty apod.</option>
+                                    </select>
+                                    <i class="fi-rr-briefcase"></i>
+                                </div>
+                                
+                                <h5 class="medium-heading mb-15">Jazyková vybavenost</h5>
+                                <div class="form-group select-style select-style-icon">
+                                    <select name="lang" required="required" class="form-control form-icons select-active">
+                                        <option value="not_needed">Jazyk není nutný</option>
+                                        <option value="czech_needed">Nutná čeština</option>
+                                        <option value="czech_basics_needed">Nutné základy češtiny</option>
+                                        <option value="english_needed">Angličtina</option>
+                                       
                                     </select>
                                     <i class="fi-rr-briefcase"></i>
                                 </div>

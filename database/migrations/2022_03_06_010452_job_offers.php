@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('jobType')->nullable();
             $table->string('status')->nullable();
             $table->string('status4employer')->nullable();
+            $table->string('lang')->nullable();
             $table->string('ip')->nullable();
             $table->string('email')->unique()->nullable();
             $table->rememberToken();
