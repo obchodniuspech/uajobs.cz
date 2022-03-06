@@ -1,0 +1,812 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jobhub - Job Board HTML Website Template</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.svg" />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=1.0" />
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="text-center">
+                    <img src="assets/imgs/theme/loading.gif" alt="jobhub" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="header sticky-bar">
+        <div class="container">
+            <div class="main-header">
+                <div class="header-left">
+                    <div class="header-logo">
+                        <a href="index.html" class="d-flex"><img alt="jobhub" src="assets/imgs/theme/jobhub-logo.svg" /></a>
+                    </div>
+                    <div class="header-nav">
+                        <nav class="nav-main-menu d-none d-xl-block">
+                            <ul class="main-menu">
+                                <li class="has-children">
+                                    <a class="active" href="index.html">Home</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">Home 1</a></li>
+                                        <li><a href="index-2.html">Home 2</a></li>
+                                        <li><a href="index-3.html">Home 3</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="job-grid.html">Browse Jobs</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="job-grid.html">Job Grid</a></li>
+                                        <li><a href="job-grid-2.html">Job Grid 2</a></li>
+                                        <li><a href="job-list.html">Job List</a></li>
+                                        <li class="hr"><span></span></li>
+                                        <li><a href="job-single.html">Job Single 01</a></li>
+                                        <li><a href="job-single-2.html">Job Single 02</a></li>
+                                        <li><a href="job-single-3.html">Job Single 03</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="employers-grid.html">Employers</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="employers-grid.html">Employers Grid</a></li>
+                                        <li><a href="employers-grid-2.html">Employers Grid 2</a></li>
+                                        <li><a href="employers-list.html">Employers List</a></li>
+                                        <li class="hr"><span></span></li>
+                                        <li><a href="employers-single.html">Employers Single 01</a></li>
+                                        <li><a href="employers-single-2.html">Employers Single 02</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="candidates-grid.html">Candidates</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="candidates-grid.html">Candidates Grid</a></li>
+                                        <li><a href="candidates-grid-2.html">Candidates Grid 2</a></li>
+                                        <li><a href="candidates-list.html">Candidates List</a></li>
+                                        <li class="hr"><span></span></li>
+                                        <li><a href="candidates-single.html">Candidates Single 01</a></li>
+                                        <li><a href="candidates-single-2.html">Candidates Single 02</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="#">Blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                                        <li><a href="blog-grid-2.html">Blog Grid Sidebar</a></li>
+                                        <li><a href="blog-list.html">Blog List</a></li>
+                                        <li class="hr"><span></span></li>
+                                        <li><a href="blog-single.html">Blog Single 01</a></li>
+                                        <li><a href="blog-single-2.html">Blog Single 02</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="#">Pages</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="page-about.html">About Us</a></li>
+                                        <li><a href="page-service.html">Our Services</a></li>
+                                        <li><a href="page-pricing.html">Pricing Plan</a></li>
+                                        <li><a href="pages-faqs.html">FAQs</a></li>
+                                        <li><a href="page-contact.html">Contact Us</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="burger-icon burger-icon-white">
+                            <span class="burger-icon-top"></span>
+                            <span class="burger-icon-mid"></span>
+                            <span class="burger-icon-bottom"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="block-signin">
+                        <a href="#" class="text-link-bd-btom hover-up">Apply Now</a>
+                        <a href="#" class="btn btn-default btn-shadow ml-40 hover-up">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar">
+        <div class="mobile-header-wrapper-inner">
+            <div class="mobile-header-top">
+                <div class="user-account">
+                    <img src="assets/imgs/avatar/ava_1.png" alt="jobhub" />
+                    <div class="content">
+                        <h6 class="user-name">Howdy, <span class="text-brand">AliThemes</span></h6>
+                        <p class="font-xs text-muted">You have 2 new messages</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-header-content-area">
+                <div class="perfect-scroll">
+                    <div class="mobile-search mobile-header-border mb-30">
+                        <form action="#">
+                            <input type="text" placeholder="Search for items…" />
+                            <i class="fi-rr-search"></i>
+                        </form>
+                    </div>
+                    <div class="mobile-menu-wrap mobile-header-border">
+                        <!-- mobile menu start -->
+                        <nav>
+                            <ul class="mobile-menu font-heading">
+                                <li class="has-children">
+                                    <a class="active" href="index.html">Home</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">Home 1</a></li>
+                                        <li><a href="index-2.html">Home 2</a></li>
+                                        <li><a href="index-3.html">Home 3</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="job-grid.html">Browse Jobs</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="job-grid.html">Job Grid</a></li>
+                                        <li><a href="job-grid-2.html">Job Grid 2</a></li>
+                                        <li><a href="job-list.html">Job List</a></li>
+                                        <li class="hr"><span></span></li>
+                                        <li><a href="job-single.html">Job Single 01</a></li>
+                                        <li><a href="job-single-2.html">Job Single 02</a></li>
+                                        <li><a href="job-single-3.html">Job Single 03</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="employers-grid.html">Employers</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="employers-grid.html">Employers Grid</a></li>
+                                        <li><a href="employers-grid-2.html">Employers Grid 2</a></li>
+                                        <li><a href="employers-list.html">Employers List</a></li>
+                                        <li class="hr"><span></span></li>
+                                        <li><a href="employers-single.html">Employers Single 01</a></li>
+                                        <li><a href="employers-single-2.html">Employers Single 02</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="candidates-grid.html">Candidates</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="candidates-grid.html">Candidates Grid</a></li>
+                                        <li><a href="candidates-grid-2.html">Candidates Grid 2</a></li>
+                                        <li><a href="candidates-list.html">Candidates List</a></li>
+                                        <li class="hr"><span></span></li>
+                                        <li><a href="candidates-single.html">Candidates Single 01</a></li>
+                                        <li><a href="candidates-single-2.html">Candidates Single 02</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="#">Blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                                        <li><a href="blog-grid-2.html">Blog Grid Sidebar</a></li>
+                                        <li><a href="blog-list.html">Blog List</a></li>
+                                        <li class="hr"><span></span></li>
+                                        <li><a href="blog-single.html">Blog Single 01</a></li>
+                                        <li><a href="blog-single-2.html">Blog Single 02</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="#">Pages</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="page-about.html">About Us</a></li>
+                                        <li><a href="page-service.html">Our Services</a></li>
+                                        <li><a href="page-pricing.html">Pricing Plan</a></li>
+                                        <li><a href="pages-faqs.html">FAQs</a></li>
+                                        <li><a href="page-contact.html">Contact Us</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- mobile menu end -->
+                    </div>
+                    <div class="mobile-account">
+                        <h6 class="mb-10">Your Account</h6>
+                        <ul class="mobile-menu font-heading">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Work Preferences</a></li>
+                            <li><a href="#">My Boosted Shots</a></li>
+                            <li><a href="#">My Collections</a></li>
+                            <li><a href="#">Account Settings</a></li>
+                            <li><a href="#">Go Pro</a></li>
+                            <li><a href="#">Sign Out</a></li>
+                        </ul>
+                    </div>
+                    <div class="mobile-social-icon mb-50">
+                        <h6 class="mb-25">Follow Us</h6>
+                        <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt="jobhub" /></a>
+                        <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt="jobhub" /></a>
+                        <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt="jobhub" /></a>
+                        <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt="jobhub" /></a>
+                        <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt="jobhub" /></a>
+                    </div>
+                    <div class="site-copyright">Copyright 2022 © JobHub. <br />Designed by AliThemes.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End header-->
+    <!-- Content -->
+    <main class="main">
+        <section class="section-box">
+            <div class="container pt-50">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8 text-center">
+                        <h1 class="section-title-large mb-30 wow animate__animated animate__fadeInUp">Our services</h1>
+                        <h5 class="mb-30 text-muted wow animate__animated animate__fadeInUp">Tellus praesent vulputate placerat enim donec eget fermentum diam nunc erat commodo ornare eget lorem pharetra sit pharetra</h5>
+                    </div>
+                </div>
+                <div class="box-banner-services mt-40">
+                    <div class="box-banner-services--inner wow animate__animated animate__fadeInUp">
+                        <figure><img alt="jobhub" src="assets/imgs/page/services/banner-our-services.png" /></figure>
+                        <a href="https://www.youtube.com/watch?v=ea-I4sqgVGY" class="popup-youtube btn-play-2"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-box mt-90 mb-50 mb-md-0">
+            <div class="container">
+                <div class="mw-650">
+                    <h4 class="text-center wow animate__animated animate__fadeInUp">Rapidly provision one to thousands of Droplets in seconds </h4>
+                </div>
+                <div class="row mt-60">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-md-30">
+                        <div class="card-none-bd hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".0s">
+                            <div class="block-image">
+                                <figure><img alt="jobhub" src="assets/imgs/page/services/ready-project.svg" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <h3><span class="count">15</span>00+</h3>
+                                <strong>Ready perfect jobs</strong>
+                                <p class="text-mutted">A place to think and track ideas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-md-30">
+                        <div class="card-none-bd hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+                            <div class="block-image">
+                                <figure><img alt="jobhub" src="assets/imgs/page/services/candidate-call.svg" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <h3><span class="count">8</span>00K</h3>
+                                <strong>Candidate calls</strong>
+                                <p class="text-mutted">A place to think and track ideas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-md-30">
+                        <div class="card-none-bd hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
+                            <div class="block-image">
+                                <figure><img alt="jobhub" src="assets/imgs/page/services/job-posted.svg" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <h3><span class="count">12</span>00</h3>
+                                <strong>Jobs posted</strong>
+                                <p class="text-mutted">A place to think and track ideas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card-none-bd hover-up wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
+                            <div class="block-image">
+                                <figure><img alt="jobhub" src="assets/imgs/page/services/complete-jobs.svg" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <h3><span class="count">6</span>00K</h3>
+                                <strong>Complete Jobs</strong>
+                                <p class="text-mutted">A place to think and track ideas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-100">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="card-grid-news hover-up wow animate__animated animate__fadeIn" data-wow-delay=".0s">
+                            <div class="block-image-rd">
+                                <figure><img src="assets/imgs/page/services/img-news1.png" alt="jobhub" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <a href="#"><strong>Jobs finder platform</strong></a>
+                                <p class="text-gray-200">
+                                    usce ex quam, ultrices id congue non, varius non libero. Cras ut venenatis lectus, vitae eleifend mi. Morbi venenatis leo et turpis lobortis malesuada. Pellentesque tempus est et nibh porttito
+                                </p>
+                                <ul>
+                                    <li><a href="#">Market research</a></li>
+                                    <li><a href="#">Strategic Consulting</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="card-grid-news hover-up wow animate__animated animate__fadeIn" data-wow-delay=".2s">
+                            <div class="block-image-rd">
+                                <figure><img src="assets/imgs/page/services/img-news2.png" alt="jobhub" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <a href="#"><strong>Jobs finder platform</strong></a>
+                                <p class="text-gray-200">
+                                    usce ex quam, ultrices id congue non, varius non libero. Cras ut venenatis lectus, vitae eleifend mi. Morbi venenatis leo et turpis lobortis malesuada. Pellentesque tempus est et nibh porttito
+                                </p>
+                                <ul>
+                                    <li><a href="#">Market research</a></li>
+                                    <li><a href="#">Strategic Consulting</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="card-grid-news hover-up wow animate__animated animate__fadeIn" data-wow-delay=".4s">
+                            <div class="block-image-rd">
+                                <figure><img src="assets/imgs/page/services/img-news4.png" alt="jobhub" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <a href="#"><strong>Jobs finder platform</strong></a>
+                                <p class="text-gray-200">
+                                    usce ex quam, ultrices id congue non, varius non libero. Cras ut venenatis lectus, vitae eleifend mi. Morbi venenatis leo et turpis lobortis malesuada. Pellentesque tempus est et nibh porttito
+                                </p>
+                                <ul>
+                                    <li><a href="#">Market research</a></li>
+                                    <li><a href="#">Strategic Consulting</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="card-grid-news hover-up wow animate__animated animate__fadeIn" data-wow-delay=".0s">
+                            <div class="block-image-rd">
+                                <figure><img src="assets/imgs/page/services/img-news5.png" alt="jobhub" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <a href="#"><strong>Jobs finder platform</strong></a>
+                                <p class="text-gray-200">
+                                    usce ex quam, ultrices id congue non, varius non libero. Cras ut venenatis lectus, vitae eleifend mi. Morbi venenatis leo et turpis lobortis malesuada. Pellentesque tempus est et nibh porttito
+                                </p>
+                                <ul>
+                                    <li><a href="#">Market research</a></li>
+                                    <li><a href="#">Strategic Consulting</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="card-grid-news hover-up wow animate__animated animate__fadeIn" data-wow-delay=".2s">
+                            <div class="block-image-rd">
+                                <figure><img src="assets/imgs/page/services/img-news2.png" alt="jobhub" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <a href="#"><strong>Jobs finder platform</strong></a>
+                                <p class="text-gray-200">
+                                    usce ex quam, ultrices id congue non, varius non libero. Cras ut venenatis lectus, vitae eleifend mi. Morbi venenatis leo et turpis lobortis malesuada. Pellentesque tempus est et nibh porttito
+                                </p>
+                                <ul>
+                                    <li><a href="#">Market research</a></li>
+                                    <li><a href="#">Strategic Consulting</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="card-grid-news hover-up wow animate__animated animate__fadeIn" data-wow-delay=".4s">
+                            <div class="block-image-rd">
+                                <figure><img src="assets/imgs/page/services/img-news6.png" alt="jobhub" /></figure>
+                            </div>
+                            <div class="card-info-bottom">
+                                <a href="#"><strong>Jobs finder platform</strong></a>
+                                <p class="text-gray-200">
+                                    usce ex quam, ultrices id congue non, varius non libero. Cras ut venenatis lectus, vitae eleifend mi. Morbi venenatis leo et turpis lobortis malesuada. Pellentesque tempus est et nibh porttito
+                                </p>
+                                <ul>
+                                    <li><a href="#">Market research</a></li>
+                                    <li><a href="#">Strategic Consulting</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                    <li><a href="#">Effective Planning</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-box mt-70 mt-md-0">
+            <div class="container">
+                <h2 class="section-title mb-15 wow animate__animated animate__fadeInUp">Our Happy Customer</h2>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="text-md-lh24 color-black-5 wow animate__animated animate__fadeInUp">
+                            When it comes to choosing the right web hosting provider, we know how easy it is to get overwhelmed
+                            with the number.
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-50">
+                    <div class="box-swiper">
+                        <div class="swiper-container swiper-group-2">
+                            <div class="swiper-wrapper pb-70 pt-5">
+                                <div class="swiper-slide">
+                                    <div class="card-two-collumn hover-up">
+                                        <div class="text-center card-grid-3-image">
+                                            <a href="#">
+                                                <figure><img alt="jobhub" src="assets/imgs/page/services/profile.png" /></figure>
+                                            </a>
+                                        </div>
+                                        <div class="card-block-info quote-left mt-10">
+                                            <h5 class="heading-md font-semibold mb-20">Design Quality and Customer Support</h5>
+                                            <p class="text-md">Our creative strategy is focused on inspiring customers to live
+                                                more sustainable and healthy lives. The Senior Designer works to elevate the
+                                                brand and creates</p>
+                                            <div class="card-bottom-bd">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="card-profile">
+                                                            <strong>Azumi Shine</strong>
+                                                            <span>Google UI UX Design</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="mt-15 text-end">
+                                                            <div class="rate">
+                                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                                <label for="star5" title="text">5 stars</label>
+                                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                                <label for="star4" title="text" class="checked">4 stars</label>
+                                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                                <label for="star3" title="text" class="checked">3 stars</label>
+                                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                                <label for="star2" title="text" class="checked">2 stars</label>
+                                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                                <label for="star1" title="text" class="checked">1 star</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card-two-collumn hover-up">
+                                        <div class="text-center card-grid-3-image">
+                                            <a href="#">
+                                                <figure><img alt="jobhub" src="assets/imgs/page/services/profile3.png" /></figure>
+                                            </a>
+                                        </div>
+                                        <div class="card-block-info quote-left mt-10">
+                                            <h5 class="heading-md font-semibold mb-20">Price and Product's Value</h5>
+                                            <p class="text-md">Our creative strategy is focused on inspiring customers to live
+                                                more sustainable and healthy lives. The Senior Designer works to elevate the
+                                                brand and creates</p>
+                                            <div class="card-bottom-bd">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="card-profile">
+                                                            <strong>Steven Jhan</strong>
+                                                            <span>Aplle inc / Graphic Design</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="rate">
+                                                            <input type="radio" id="star52" name="rate" value="5" />
+                                                            <label for="star52" title="text" class="checked">5 stars</label>
+                                                            <input type="radio" id="star42" name="rate" value="4" />
+                                                            <label for="star42" title="text" class="checked">4 stars</label>
+                                                            <input type="radio" id="star32" name="rate" value="3" />
+                                                            <label for="star32" title="text" class="checked">3 stars</label>
+                                                            <input type="radio" id="star22" name="rate" value="2" />
+                                                            <label for="star22" title="text" class="checked">2 stars</label>
+                                                            <input type="radio" id="star12" name="rate" value="1" />
+                                                            <label for="star12" title="text" class="checked">1 star</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card-two-collumn">
+                                        <div class="text-center card-grid-3-image">
+                                            <a href="#">
+                                                <figure><img alt="jobhub" src="assets/imgs/page/services/profile2.png" /></figure>
+                                            </a>
+                                        </div>
+                                        <div class="card-block-info quote-left mt-10">
+                                            <h5 class="heading-md font-semibold mb-20">The best place to hire</h5>
+                                            <p class="text-md">Our mission is to create the world's most sustainable
+                                                healthcare company by creating high-quality healthcare products in iconic,
+                                                sustainable packaging.</p>
+                                            <div class="card-bottom-bd">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="card-profile">
+                                                            <strong>Azumi Shine</strong>
+                                                            <span>Google UI UX Design</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="mt-15 text-end">
+                                                            <div class="rate">
+                                                                <input type="radio" id="star53" name="rate" value="5" />
+                                                                <label for="star53" title="text" class="checked">5 stars</label>
+                                                                <input type="radio" id="star43" name="rate" value="4" />
+                                                                <label for="star43" title="text" class="checked">4 stars</label>
+                                                                <input type="radio" id="star33" name="rate" value="3" />
+                                                                <label for="star33" title="text" class="checked">3 stars</label>
+                                                                <input type="radio" id="star23" name="rate" value="2" />
+                                                                <label for="star23" title="text" class="checked">2 stars</label>
+                                                                <input type="radio" id="star13" name="rate" value="1" />
+                                                                <label for="star13" title="text" class="checked">1 star</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination swiper-pagination3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-box mt-90 mb-50">
+            <div class="container">
+                <div class="mw-450 text-center">
+                    <h3 class="mb-30 wow animate__animated animate__fadeInUp">Choose The Offer That Suits You</h3>
+                </div>
+                <div class="mw-650 text-center wow animate__animated animate__fadeInUp">
+                    <p class="mb-35 text-md-lh24 color-black-5">When it comes to choosing the right web hosting provider, we
+                        know how easy it is to get overwhelmed with the number.</p>
+                </div>
+                <div class="text-center mt-20">
+                    <span class="text-lg text-billed">Billed Yearly</span>
+                    <label class="switch ml-20 mr-20">
+                        <input type="checkbox" id="cb_billed_type" name="billed_type" onchange="checkBilled()" />
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="text-lg text-billed">Billed Monthly</span>
+                </div>
+                <div class="block-pricing mt-125 mt-md-50">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
+                            <div class="box-pricing-item">
+                                <div class="box-info-price">
+                                    <span class="text-price for-month display-month">$20</span>
+                                    <span class="text-price for-year">$240</span>
+                                    <span class="text-month">/month</span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-15">Intro</h4>
+                                    <p class="text-desc-package mb-30">
+                                        For most businesses that want to otpimize web queries
+                                    </p>
+                                </div>
+                                <ul class="list-package-feature">
+                                    <li>All limited links</li>
+                                    <li>Own analytics platform</li>
+                                    <li>Chat support</li>
+                                    <li>Optimize hashtags</li>
+                                    <li>Unlimited users</li>
+                                </ul>
+                                <div>
+                                    <a href="#" class="btn btn-border">Choose plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
+                            <div class="box-pricing-item">
+                                <div class="box-info-price">
+                                    <span class="text-price for-month display-month">$50</span>
+                                    <span class="text-price for-year">$600</span>
+                                    <span class="text-month">/month</span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-15">Base</h4>
+                                    <p class="text-desc-package mb-30">
+                                        For most businesses that want to otpimize web queries
+                                    </p>
+                                </div>
+                                <ul class="list-package-feature">
+                                    <li>All limited links</li>
+                                    <li>Own analytics platform</li>
+                                    <li>Chat support</li>
+                                    <li>Optimize hashtags</li>
+                                    <li>Unlimited users</li>
+                                </ul>
+                                <div>
+                                    <a href="#" class="btn btn-border">Choose plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
+                            <div class="box-pricing-item most-popular">
+                                <div class="text-end mb-10">
+                                    <a href="#" class="btn btn-white-sm">Most popular</a>
+                                </div>
+                                <div class="box-info-price">
+                                    <span class="text-price for-month display-month">$100</span>
+                                    <span class="text-price for-year">$1200</span>
+                                    <span class="text-month">/month</span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-15">Pro</h4>
+                                    <p class="text-desc-package mb-30">
+                                        For most businesses that want to otpimize web queries
+                                    </p>
+                                </div>
+                                <ul class="list-package-feature">
+                                    <li>All limited links</li>
+                                    <li>Own analytics platform</li>
+                                    <li>Chat support</li>
+                                    <li>Optimize hashtags</li>
+                                    <li>Unlimited users</li>
+                                </ul>
+                                <div>
+                                    <a href="#" class="btn btn-border">Choose plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
+                            <div class="box-pricing-item">
+                                <div class="box-info-price">
+                                    <span class="text-price for-month display-month">$200</span>
+                                    <span class="text-price for-year">$2400</span>
+                                    <span class="text-month">/month</span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-15">Enterprise</h4>
+                                    <p class="text-desc-package mb-30">
+                                        For most businesses that want to otpimize web queries
+                                    </p>
+                                </div>
+                                <ul class="list-package-feature">
+                                    <li>All limited links</li>
+                                    <li>Own analytics platform</li>
+                                    <li>Chat support</li>
+                                    <li>Optimize hashtags</li>
+                                    <li>Unlimited users</li>
+                                </ul>
+                                <div>
+                                    <a href="#" class="btn btn-border">Choose plan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-box mt-50 mb-60">
+            <div class="container">
+                <div class="box-newsletter">
+                    <h5 class="text-md-newsletter">Sign up to get</h5>
+                    <h6 class="text-lg-newsletter">the latest jobs</h6>
+                    <div class="box-form-newsletter mt-30">
+                        <form class="form-newsletter">
+                            <input type="text" class="input-newsletter" value="" placeholder="contact.alithemes@gmail.com" />
+                            <button class="btn btn-default font-heading icon-send-letter">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="box-newsletter-bottom">
+                    <div class="newsletter-bottom"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End Content -->
+    <!-- Footer -->
+    <footer class="footer mt-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <a href="index.html"><img alt="jobhub" src="assets/imgs/theme/jobhub-logo.svg" /></a>
+                    <div class="mt-20 mb-20">Jobhub is the heart of the design community and the best resource to discover and connect with designers and jobs worldwide.</div>
+                </div>
+                <div class="col-md-2 col-xs-6">
+                    <h6>Company</h6>
+                    <ul class="menu-footer mt-40">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-xs-6">
+                    <h6>Product</h6>
+                    <ul class="menu-footer mt-40">
+                        <li><a href="#">Feature</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Credit</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-xs-6">
+                    <h6>Download</h6>
+                    <ul class="menu-footer mt-40">
+                        <li><a href="#">iOS</a></li>
+                        <li><a href="#">Android</a></li>
+                        <li><a href="#">Microsoft</a></li>
+                        <li><a href="#">Desktop</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-xs-6">
+                    <h6>Support</h6>
+                    <ul class="menu-footer mt-40">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom mt-50">
+                <div class="row">
+                    <div class="col-md-6">
+                        Copyright ©2021 <a href="#"><strong>Jobhub</strong></a>. All Rights Reserved
+                    </div>
+                    <div class="col-md-6 text-md-end text-start">
+                        <div class="footer-social">
+                            <a href="#" class="icon-socials icon-facebook"></a>
+                            <a href="#" class="icon-socials icon-twitter"></a>
+                            <a href="#" class="icon-socials icon-instagram"></a>
+                            <a href="#" class="icon-socials icon-linkedin"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <!-- Vendor JS-->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/plugins/waypoints.js"></script>
+    <script src="assets/js/plugins/wow.js"></script>
+    <script src="assets/js/plugins/magnific-popup.js"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/select2.min.js"></script>
+    <script src="assets/js/plugins/isotope.js"></script>
+    <script src="assets/js/plugins/scrollup.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/counterup.js"></script>
+    <!-- Template  JS -->
+    <script src="assets/js/main.js?v=1.0"></script>
+</body>
+
+</html>
