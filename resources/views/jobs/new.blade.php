@@ -20,7 +20,7 @@
 
                                 <h5 class="medium-heading mb-15">Název pozice</h5>
                                    <div class="form-group">
-                                          <input type="text" required="required" class="form-control form-icons" name="positionName" placeholder="Název pozice" />
+                                          <input type="text" required="required" class="form-control form-icons" value="{{old('positionName')}}"" name="positionName" placeholder="Název pozice" />
                                           <i class="fi-rr-marker"></i>
                                     </div>
 

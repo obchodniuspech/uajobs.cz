@@ -13,13 +13,20 @@ class jobsController extends Controller
     //
 
     public function showAll(Request $req) {
-        $invoice = "";
-        return view('jobs.index',['invoice'=>$invoice]);
+        $jobsTotal = DB::table('jobOffers')->orderBy('id','desc')->count();;
+        
+        $jobs = DB::table('jobOffers')->orderBy('id','desc')->paginate(100);
+        return view('jobs.index',['jobs'=>$jobs,"totalCount"=>$jobsTotal]);
+        
     }
 
     public function newOffer (Request $req) {
         $categories = DB::table('jobCategories')->orderBy('categoryName','asc')->get();
         return view('jobs.new',['categories'=>$categories]);
+    }
+    
+    public function heplUaJobs (Request $req) {
+        return view('helpus');
     }
     public function newOfferDone (Request $req) {
         return view('jobs.newDone');

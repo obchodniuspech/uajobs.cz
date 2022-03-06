@@ -53,6 +53,53 @@ return new class extends Migration
                 'password' => '$2y$10$Wh6F4FZXtT7LIy5NEBAjL.sfMK0ekh0zLBCBj/TJyujoMVEo.O68u',
             )
         );
+        
+        $jobsDemo = [
+            array(
+                'companyName' => 'Michal Pešat',
+                'companyId' => '74885570',
+                'companyContactEmail' => 'pesatmichal@seznam.cz',
+                'companyContactPhone' => '608747877',
+                'publishContact' => '1',
+                'publishTime' => '14',
+                'positionName' => 'Uklízečka pro obchod',
+                'positionDesc' => 'Obchod cca 20m2',
+                'positionAddress' => 'Jindřicha Bubeníčka 1598/5',
+                'categoryId' => '25',
+                'salaryFrom' => '100',
+                'salaryTo' => '200',
+                'jobType' => 'time2time',
+                'status' => 'waiting_approval',
+                'status4employer' => 'not_confirmed',
+                'lang' => 'not_needed',
+                'ip' => '31.30.166.113',
+                'created_at' => '2022-03-06 18:22:00',
+            ),
+            
+            array(
+                'companyName' => 'Michal Pešat',
+                'companyId' => '74885570',
+                'companyContactEmail' => 'pesatmichal@seznam.cz',
+                'companyContactPhone' => '608747877',
+                'publishContact' => '1',
+                'publishTime' => '14',
+                'positionName' => 'Hlídání dětí',
+                'positionDesc' => '12 a 10 let',
+                'positionAddress' => 'Do Kopečka 37',
+                'categoryId' => '25',
+                'salaryFrom' => '200',
+                'salaryTo' => '250',
+                'jobType' => 'partTime',
+                'status' => 'waiting_approval',
+                'status4employer' => 'not_confirmed',
+                'lang' => 'czech_needed',
+                'ip' => '31.30.166.113',
+                'created_at' => '2022-03-06 18:22:00',
+            ),
+        ];
+        DB::table('jobOffers')->insert(
+            $jobsDemo
+        );
 
         $data = [
             array(
@@ -180,11 +227,26 @@ return new class extends Migration
                   'categoryDescription' => '',
                   'categoryStatus' => '1',
               ),
-              array(
-                     'categoryName' => 'Údržba nemovitostí',
-                     'categoryDescription' => '',
-                     'categoryStatus' => '1',
-                 ),
+        array(
+               'categoryName' => 'Údržba nemovitostí',
+               'categoryDescription' => '',
+               'categoryStatus' => '1',
+           ),
+         array(
+             'categoryName' => 'Švadlena',
+             'categoryDescription' => '',
+             'categoryStatus' => '1',
+         ),
+         array(
+              'categoryName' => 'Hlídání dětí',
+              'categoryDescription' => '',
+              'categoryStatus' => '1',
+          ),
+          array(
+               'categoryName' => 'Kuchař',
+               'categoryDescription' => '',
+               'categoryStatus' => '1',
+           ),
         ];
         DB::table('jobCategories')->insert(
             $data

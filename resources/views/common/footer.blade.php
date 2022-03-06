@@ -48,7 +48,7 @@
             <div class="footer-bottom mt-50">
                 <div class="row">
                     <div class="col-md-6">
-                        Copyright ©2022 <a href="#"><strong>UAjobs.cz</strong></a>
+                        Copyright ©2022 <a href="#"><strong>UAjobs.cz</strong></a> | <a href="https://github.com/obchodniuspech/uajobs.cz" target="_blank"><strong>Github - zapojte se</strong></a> | <a href="{{ route('Pomoc UAjobs.cz') }}"><strong>Spolupracujme / pomozte našemu portálu</strong></a>
                     </div>
                     <!--<div class="col-md-6 text-md-end text-start">
                         <div class="footer-social">

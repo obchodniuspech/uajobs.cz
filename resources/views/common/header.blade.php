@@ -15,6 +15,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="./jobhub_frontend/assets/imgs/theme/favicon.svg" />
     <!-- Template CSS -->
     <link rel="stylesheet" href="./jobhub_frontend/assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./jobhub_frontend/assets/css/main.css?v=1.0" />
 
     <!-- Foxentry start -->
@@ -63,7 +64,12 @@
                                     <a  href="{{ route('Hledám práci') }}">Hledám práci</a>
                                 </li>-->
                                 <li>
-                                    <a href="{{ route('Nový inzerát') }}">Nabízím práci</a>
+                                    <a href="{{ route('Nový inzerát') }}"><i class="bi bi-megaphone"></i> Nabízím práci</a>
+
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('Pomoc UAjobs.cz') }}"><i class="bi bi-suit-heart-fill"></i> Spolupráce a partneři</a>
 
                                 </li>
 
