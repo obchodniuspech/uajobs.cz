@@ -41,6 +41,12 @@
                                          <input type="text" required="required" class="form-control form-icons" name="companyId" placeholder="IČ firmy" />
                                          <i class="fi-rr-marker"></i>
                                 </div>
+                                
+                                <h5 class="medium-heading mb-15">Název firmy</h5>
+                                <div class="form-group">
+                                         <input type="text" required="required" class="form-control form-icons" name="companyName" placeholder="Náze firmy" />
+                                         <i class="fi-rr-marker"></i>
+                                </div>
 
                                 <h5 class="medium-heading mb-15">Kategorie</h5>
                                 <div class="form-group select-style select-style-icon">
