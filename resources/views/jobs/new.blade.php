@@ -44,7 +44,7 @@
                                 
                                 <h5 class="medium-heading mb-15">Název firmy</h5>
                                 <div class="form-group">
-                                         <input type="text" required="required" class="form-control form-icons" name="companyName" placeholder="Náze firmy" />
+                                         <input type="text" required="required" class="form-control form-icons" name="companyName" placeholder="Název firmy" />
                                          <i class="fi-rr-marker"></i>
                                 </div>
 
