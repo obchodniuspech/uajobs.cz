@@ -40,6 +40,8 @@ class jobsController extends Controller
                 'positionDesc' => $req->positionDesc,
                 'positionAddress' => $req->positionAddress,
                 'salaryFrom' => $req->salaryFrom,
+                'status' => 'waiting_approval',
+                'status4employer' => 'not_confirmed',
                 'salaryTo' => $req->salaryTo,
                 'jobType' => $req->jobType,
                 'ip' => $_SERVER['REMOTE_ADDR'],
