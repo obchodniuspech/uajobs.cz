@@ -22,7 +22,9 @@ return new class extends Migration
             $table->boolean('publishContact')->nullable();
             $table->integer('publishTime')->nullable();
             $table->string('positionName')->nullable();
+            $table->string('positionNameUA')->nullable();
             $table->string('positionDesc')->nullable();
+            $table->string('positionDescUA')->nullable();
             $table->string('positionAddress')->nullable();
             $table->string('positionCity')->nullable();
             $table->string('categoryId')->nullable();
@@ -42,7 +44,9 @@ return new class extends Migration
         Schema::create('jobCategories', function (Blueprint $table) {
             $table->id();
             $table->string('categoryName');
+            $table->string('categoryNameUA');
             $table->string('categoryDescription');
+            $table->string('categoryDescriptionUA');
             $table->boolean('categoryStatus');
             $table->timestamps();
         });

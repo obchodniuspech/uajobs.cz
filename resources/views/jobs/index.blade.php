@@ -1,5 +1,7 @@
 @include('common.header')
 
+
+
 <!-- Content -->
 <main class="main">
   <!--  <section class="section-box-2">
