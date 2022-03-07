@@ -39,13 +39,21 @@ class jobsController extends Controller
         else {
             $typeWhere = $req->filterType;
         }
+        
+        if (!$req->filterLang OR $req->filterLang=="all") {
+            $langWhere = "%";
+            $langWhereDesc = "Všechny kategorie";
+        }
+        else {
+            $langWhere = $req->filterLang;
+        }
        
-       $jobsTotal = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->orderBy('id','desc')->count();
-       $jobs = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->orderBy('id','desc')->paginate(100);
+       $jobsTotal = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->orderBy('id','desc')->count();
+       $jobs = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->orderBy('id','desc')->paginate(100);
        
        $jobsCities = DB::table('jobOffers')->groupBy('positionCity')->get();
         
-        return view('jobs.index',['jobs'=>$jobs,"totalCount"=>$jobsTotal,'cities'=>$jobsCities,'categories'=>$categories]);
+        return view('jobs.index',['jobs'=>$jobs,"totalCount"=>$jobsTotal,'cities'=>$jobsCities,'categories'=>$categories,'req'=>$req]);
         
     }
 

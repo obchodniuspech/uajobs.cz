@@ -187,16 +187,18 @@
                             </form>
                         </div>
                     </div>-->
+
+                    <form method="get" action="">
                     <div class="sidebar-shadow none-shadow mb-30">
                         <div class="sidebar-filters">
                             <div class="filter-block mb-30">
                                 <h5 class="medium-heading mb-15">Místo</h5>
 
                                 <div class="form-group select-style select-style-icon">
-                                    <select name="location" class="form-control form-icons select-active">
+                                    <select name="filterLocation" class="form-control form-icons select-active">
                                         <option value="all">Vše
                                         @foreach ($cities AS $city)
-                                            <option>{{$city->positionCity}}
+                                            <option @isset ($req->filterLocation) @if ($city->positionCity == $req->filterLocation) selected="selected" @endif @endisset>{{$city->positionCity}}
                                         @endforeach
                                     </select>
                                     <i class="fi-rr-marker"></i>
@@ -205,10 +207,10 @@
                             <div class="filter-block mb-30">
                                 <h5 class="medium-heading mb-15">Kategorie</h5>
                                 <div class="form-group select-style select-style-icon">
-                                    <select class="form-control form-icons select-active">
+                                    <select name="filterCategory" class="form-control form-icons select-active">
                                         <option value="all">Vše
                                         @foreach ($categories AS $cat)
-                                            <option value="{{$cat->id}}">{{$cat->categoryName}}
+                                            <option @isset ($req->filterLocation) @if ($cat->id == $req->filterCategory) selected="selected" @endif @endisset value="{{$cat->id}}">{{$cat->categoryName}}
                                         @endforeach
                                     </select>
                                     <i class="fi-rr-briefcase"></i>
@@ -218,14 +220,14 @@
                                 <h5 class="medium-heading mb-15">Typ úvazku</h5>
 
                                 <div class="form-group select-style select-style-icon">
-                                    <select class="form-control form-icons select-active">
+                                    <select name="filterType" class="form-control form-icons select-active">
                                         <option value="all">Vše</option>
-                                        <option value="fullTime">Plný úvazek</option>
-                                        <option value="halfTime">Zkrácený úvazek</option>
-                                        <option value="parttime">Brigáda</option>
-                                        <option value="freelance">Freelance</option>
-                                        <option value="time2time">Nárazová výpomoc</option>
-                                        <option value="personal">Výpomoc v domácnostech / soukromé inzeráty apod.</option>
+                                        <option value="fullTime" @isset ($req->filterType) @if ($req->filterType=="fullTime") selected="selected" @endif @endisset>Plný úvazek</option>
+                                        <option value="halfTime" @isset ($req->filterType) @if ($req->filterType=="halfTime") selected="selected" @endif @endisset>Zkrácený úvazek</option>
+                                        <option value="parttime" @isset ($req->filterType) @if ($req->filterType=="parttime") selected="selected" @endif @endisset>Brigáda</option>
+                                        <option value="freelance" @isset ($req->filterType) @if ($req->filterType=="freelance") selected="selected" @endif @endisset>Freelance</option>
+                                        <option value="time2time" @isset ($req->filterType) @if ($req->filterType=="time2time") selected="selected" @endif @endisset>Nárazová výpomoc</option>
+                                        <option value="personal" @isset ($req->filterType) @if ($req->filterType=="personal") selected="selected" @endif @endisset>Výpomoc v domácnostech / soukromé inzeráty apod.</option>
                                     </select>
                                     <i class="fi-rr-briefcase"></i>
                                 </div>
@@ -278,12 +280,12 @@
                             <div class="filter-block mb-30">
                                 <h5 class="medium-heading mb-10">Jazyk</h5>
                                 <div class="form-group select-style select-style-icon">
-                                    <select class="form-control form-icons select-active">
+                                    <select name="filterLang" class="form-control form-icons select-active">
                                         <option value="all">Vše</option>
-                                        <option value="not_needed">Jazyk není nutný</option>
-                                        <option value="czech_needed">Nutná čeština</option>
-                                        <option value="czech_basics_needed">Nutné základy češtiny</option>
-                                        <option value="english_needed">Angličtina</option>
+                                        <option value="not_needed" @isset ($req->filterLang) @if ($req->filterLang=="not_needed") selected="selected" @endif @endisset>Jazyk není nutný</option>
+                                        <option value="czech_needed" @isset ($req->filterLang) @if ($req->filterLang=="czech_needed") selected="selected" @endif @endisset>Nutná čeština</option>
+                                        <option value="czech_basics_needed" @isset ($req->filterLang) @if ($req->filterLang=="czech_basics_needed") selected="selected" @endif @endisset>Nutné základy češtiny</option>
+                                        <option value="english_needed" @isset ($req->filterLang) @if ($req->filterLang=="english_needed") selected="selected" @endif @endisset>Angličtina</option>
                                     </select>
                                     <i class="fi-rr-briefcase"></i>
                                 </div>
@@ -315,11 +317,13 @@
                                 </div>
                             </div>-->
                             <div class="buttons-filter">
-                                <button class="btn btn-default">Apply filter</button>
-                                <a href="{{ route('Procházet inzeráty') }}"><button class="btn">Reset filter</button></a>
+                                <button class="btn btn-default">Filtrovat</button>
+                                {{--<a href="./"><button class="btn">Reset filter</button></a>--}}
                             </div>
                         </div>
                     </div>
+                    </form>
+
                     <div class="sidebar-with-bg background-primary bg-sidebar pb-80">
                         <h5 class="medium-heading text-white mb-20 mt-20">Hledáte nové zaměstnance?</h5>
                         <p class="text-body-999 text-white mb-30">Inzerujte zde</p>
