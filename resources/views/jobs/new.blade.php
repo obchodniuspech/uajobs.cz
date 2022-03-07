@@ -26,18 +26,27 @@
                                 <div class="filter-block mb-30">
 
                                 <h5 class="medium-heading mb-15">Název pozice</h5>
-                                   <div class="form-group">
-                                          <input type="text" required="required" class="form-control form-icons" value="{{old('positionName')}}"" name="positionName" placeholder="Název pozice" />
-                                          <i class="fi-rr-marker"></i>
-                                    </div>
+                                   <div class="input-group">
+                                      <span class="input-group-text" id="basic-addon1"><img src="./jobhub_frontend/assets/imgs/czech.png" height="20"></span>
+                                         <input type="text" required="required" class="form-control form-icons" value="{{old('positionName')}}"" name="positionName" placeholder="Název pozice CZ" />
+                                   </div>
+                                   
+                                   <div class="input-group">
+                                      <span class="input-group-text" id="basic-addon1"><img src="./jobhub_frontend/assets/imgs/ukraine.png" height="20"></span>
+                                         <input type="text" required="required" class="form-control form-icons" value="{{old('positionNameUA')}}"" name="positionNameUA" placeholder="Název pozice UA" />
+                                   </div>
 
-                                <h5 class="medium-heading mb-15">Stručný popis</h5>
-                                   <div class="form-group">
-                                          <input type="text" class="form-control form-icons" name="positionDesc" placeholder="Stručný popis" />
-                                          <i class="fi-rr-marker"></i>
-                                    </div>
+                                <h5 class="medium-heading mb-15 mt-3">Stručný popis</h5>
+                                   <div class="input-group">
+                                      <span class="input-group-text" id="basic-addon1"><img src="./jobhub_frontend/assets/imgs/czech.png" height="20"></span>
+                                         <input type="text" class="form-control form-icons" name="positionDesc" placeholder="Stručný popis" />
+                                   </div>
+                                   <div class="input-group">
+                                      <span class="input-group-text" id="basic-addon1"><img src="./jobhub_frontend/assets/imgs/ukraine.png" height="20"></span>
+                                         <input type="text" class="form-control form-icons" name="positionDescUA" placeholder="Stručný popis UA" />
+                                   </div>
 
-                                <h5 class="medium-heading mb-15">Přesná adresa místa výkonu práce</h5>
+                                <h5 class="medium-heading mb-15 mt-3">Přesná adresa místa výkonu práce</h5>
                                 <div class="form-group">
                                          <input type="text" required="required" class="form-control form-icons"  name="positionAddress" placeholder="Přesná adresa místa výkonu práce" />
                                          <i class="fi-rr-marker"></i>

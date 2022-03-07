@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('positionDesc')->nullable();
             $table->string('positionDescUA')->nullable();
             $table->string('positionAddress')->nullable();
+            $table->string('positionLink')->nullable();
             $table->string('positionCity')->nullable();
             $table->string('categoryId')->nullable();
             $table->string('salaryFrom')->nullable();
