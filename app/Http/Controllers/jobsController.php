@@ -13,9 +13,39 @@ class jobsController extends Controller
     //
 
     public function showAll(Request $req) {
-        $jobsTotal = DB::table('jobOffers')->orderBy('id','desc')->count();;
-        $jobs = DB::table('jobOffers')->orderBy('id','desc')->paginate(100);
-        return view('jobs.index',['jobs'=>$jobs,"totalCount"=>$jobsTotal]);
+
+        $categories = DB::table('jobCategories')->get();
+        
+        if (!$req->filterLocation OR $req->filterLocation=="all") {
+            $cityWhere = "%";
+            $cityWhereDesc = "Všechna města";
+        }
+        else {
+            $cityWhere = $req->filterLocation;
+        }
+        
+        if (!$req->filterCategory OR $req->filterCategory=="all") {
+            $categoryWhere = "%";
+            $categoryWhereDesc = "Všechny kategorie";
+        }
+        else {
+            $categoryWhere = $req->filterCategory;
+        }
+        
+        if (!$req->filterType OR $req->filterType=="all") {
+            $typeWhere = "%";
+            $typeWhereDesc = "Všechny kategorie";
+        }
+        else {
+            $typeWhere = $req->filterType;
+        }
+       
+       $jobsTotal = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->orderBy('id','desc')->count();
+       $jobs = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->orderBy('id','desc')->paginate(100);
+       
+       $jobsCities = DB::table('jobOffers')->groupBy('positionCity')->get();
+        
+        return view('jobs.index',['jobs'=>$jobs,"totalCount"=>$jobsTotal,'cities'=>$jobsCities,'categories'=>$categories]);
         
     }
 

@@ -22,8 +22,7 @@ Route::get('/', function () {
 
 
 
-///Route::get('/','App\Http\Controllers\JobsController@showAll')->name('Procházet inzeráty');
-Route::get('/','App\Http\Controllers\JobsController@newOffer')->name('Nový inzerát');
+Route::get('/','App\Http\Controllers\JobsController@showAll')->name('Procházet inzeráty');
 Route::get('/new-offer','App\Http\Controllers\JobsController@newOffer')->name('Nový inzerát');
 Route::get('/new-offer-done','App\Http\Controllers\JobsController@newOfferDone')->name('Nový inzerát uloženo');
 Route::post('/new-offer','App\Http\Controllers\JobsController@store')->name('Uložit inzerát');

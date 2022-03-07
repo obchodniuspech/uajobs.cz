@@ -190,26 +190,47 @@
                     <div class="sidebar-shadow none-shadow mb-30">
                         <div class="sidebar-filters">
                             <div class="filter-block mb-30">
-                                <h5 class="medium-heading mb-15">Location</h5>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-icons" placeholder="Location" />
+                                <h5 class="medium-heading mb-15">Místo</h5>
+
+                                <div class="form-group select-style select-style-icon">
+                                    <select name="location" class="form-control form-icons select-active">
+                                        <option value="all">Vše
+                                        @foreach ($cities AS $city)
+                                            <option>{{$city->positionCity}}
+                                        @endforeach
+                                    </select>
                                     <i class="fi-rr-marker"></i>
                                 </div>
                             </div>
                             <div class="filter-block mb-30">
-                                <h5 class="medium-heading mb-15">Categoy</h5>
+                                <h5 class="medium-heading mb-15">Kategorie</h5>
                                 <div class="form-group select-style select-style-icon">
                                     <select class="form-control form-icons select-active">
-                                        <option>Ui/UX design</option>
-                                        <option>Ui/UX design 1</option>
-                                        <option>Ui/UX design 2</option>
-                                        <option>Ui/UX design 3</option>
+                                        <option value="all">Vše
+                                        @foreach ($categories AS $cat)
+                                            <option value="{{$cat->id}}">{{$cat->categoryName}}
+                                        @endforeach
                                     </select>
                                     <i class="fi-rr-briefcase"></i>
                                 </div>
                             </div>
                             <div class="filter-block mb-30">
-                                <h5 class="medium-heading mb-15">Job type</h5>
+                                <h5 class="medium-heading mb-15">Typ úvazku</h5>
+
+                                <div class="form-group select-style select-style-icon">
+                                    <select class="form-control form-icons select-active">
+                                        <option value="all">Vše</option>
+                                        <option value="fullTime">Plný úvazek</option>
+                                        <option value="halfTime">Zkrácený úvazek</option>
+                                        <option value="parttime">Brigáda</option>
+                                        <option value="freelance">Freelance</option>
+                                        <option value="time2time">Nárazová výpomoc</option>
+                                        <option value="personal">Výpomoc v domácnostech / soukromé inzeráty apod.</option>
+                                    </select>
+                                    <i class="fi-rr-briefcase"></i>
+                                </div>
+
+                                {{--
                                 <div class="form-group">
                                     <ul class="list-checkbox">
                                         <li>
@@ -252,54 +273,19 @@
                                         </li>
                                     </ul>
                                 </div>
+                                --}}
                             </div>
                             <div class="filter-block mb-30">
-                                <h5 class="medium-heading mb-10">Experience Level</h5>
-                                <div class="form-group">
-                                    <ul class="list-checkbox">
-                                        <li>
-                                            <label class="cb-container">
-                                                <input type="checkbox"> <span class="text-small">Expert</span>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <span class="number-item">76</span>
-                                        </li>
-                                        <li>
-                                            <label class="cb-container">
-                                                <input type="checkbox"> <span class="text-small">Senior</span>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <span class="number-item">89</span>
-                                        </li>
-                                        <li>
-                                            <label class="cb-container">
-                                                <input type="checkbox" checked="checked"> <span class="text-small">Junior</span>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <span class="number-item">54</span>
-                                        </li>
-                                        <li>
-                                            <label class="cb-container">
-                                                <input type="checkbox" checked="checked"> <span class="text-small">Regular</span>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <span class="number-item">23</span>
-                                        </li>
-                                        <li>
-                                            <label class="cb-container">
-                                                <input type="checkbox"> <span class="text-small">Internship</span>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <span class="number-item">22</span>
-                                        </li>
-                                        <li>
-                                            <label class="cb-container">
-                                                <input type="checkbox"> <span class="text-small">Associate</span>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <span class="number-item">14</span>
-                                        </li>
-                                    </ul>
+                                <h5 class="medium-heading mb-10">Jazyk</h5>
+                                <div class="form-group select-style select-style-icon">
+                                    <select class="form-control form-icons select-active">
+                                        <option value="all">Vše</option>
+                                        <option value="not_needed">Jazyk není nutný</option>
+                                        <option value="czech_needed">Nutná čeština</option>
+                                        <option value="czech_basics_needed">Nutné základy češtiny</option>
+                                        <option value="english_needed">Angličtina</option>
+                                    </select>
+                                    <i class="fi-rr-briefcase"></i>
                                 </div>
                             </div>
                            <!-- <div class="filter-block mb-40">
@@ -330,7 +316,7 @@
                             </div>-->
                             <div class="buttons-filter">
                                 <button class="btn btn-default">Apply filter</button>
-                                <button class="btn">Reset filter</button>
+                                <a href="{{ route('Procházet inzeráty') }}"><button class="btn">Reset filter</button></a>
                             </div>
                         </div>
                     </div>
