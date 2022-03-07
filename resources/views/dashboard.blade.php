@@ -17,6 +17,7 @@
                             <th>Firma</th>
                             <th>Telefon</th>
                             <th>E-mail</th>
+                            <th>Přeloženo</th>
                             <th>Stav</th>
                             <th>Datum vložení</th>
                         </thead>
@@ -27,6 +28,7 @@
                                     <td>{{$thisJob->companyName}}</td>
                                     <td>{{$thisJob->companyContactPhone}}</td>
                                     <td>{{$thisJob->companyContactEmail}}</td>
+                                    <td>{{$thisJob->translation}}</td>
                                     <td>{{$thisJob->status}}</td>
                                     <td>{{$thisJob->created_at}}</td>
                                 </tr>

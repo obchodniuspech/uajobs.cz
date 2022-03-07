@@ -69,6 +69,10 @@
                                 </li>
 
                                 <li>
+                                    <a href="{{ route('Další pomoc UA') }}"><i class="bi bi-question-circle-fill"></i> Další pomoc UA</a>
+                                </li>
+
+                                <li>
                                     <a href="{{ route('Pomoc UAjobs.cz') }}"><i class="bi bi-suit-heart-fill"></i> Spolupráce a partneři</a>
 
                                 </li>

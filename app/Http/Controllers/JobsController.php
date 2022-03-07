@@ -14,7 +14,6 @@ class jobsController extends Controller
 
     public function showAll(Request $req) {
         $jobsTotal = DB::table('jobOffers')->orderBy('id','desc')->count();;
-        
         $jobs = DB::table('jobOffers')->orderBy('id','desc')->paginate(100);
         return view('jobs.index',['jobs'=>$jobs,"totalCount"=>$jobsTotal]);
         
@@ -25,9 +24,12 @@ class jobsController extends Controller
         return view('jobs.new',['categories'=>$categories]);
     }
     
-    public function heplUaJobs (Request $req) {
-        return view('helpus');
-    }
+   public function heplUaJobs (Request $req) {
+       return view('helpus');
+   }
+   public function heplUa (Request $req) {
+       return view('helpua');
+   }
     public function newOfferDone (Request $req) {
         return view('jobs.newDone');
     }
@@ -46,6 +48,7 @@ class jobsController extends Controller
                 'positionName' => $req->positionName,
                 'positionDesc' => $req->positionDesc,
                 'positionAddress' => $req->positionAddress,
+                'positionCity' => $req->positionCity,
                 'salaryFrom' => $req->salaryFrom,
                 'status' => 'waiting_approval',
                 'status4employer' => 'not_confirmed',

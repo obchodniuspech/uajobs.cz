@@ -2,6 +2,13 @@
 
 <!-- Content -->
 <main class="main">
+    
+    
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Příjem inzerátů</h4>
+  <p>Aktuálně přijímáme inzeráty, od zítřka (max 2 dny) / jakmile se databáze naplní spouštíme zobrazování inzerátů a registraci zájemců, prosím šiřte tento portál dále - děkujeme!</p>
+</div>    
+    
 <form action="{{ route('Nový inzerát') }}" method="post">
     @csrf
 
@@ -33,6 +40,12 @@
                                 <h5 class="medium-heading mb-15">Přesná adresa místa výkonu práce</h5>
                                 <div class="form-group">
                                          <input type="text" required="required" class="form-control form-icons"  name="positionAddress" placeholder="Přesná adresa místa výkonu práce" />
+                                         <i class="fi-rr-marker"></i>
+                                </div>
+                                
+                                <h5 class="medium-heading mb-15">Město</h5>
+                                <div class="form-group">
+                                         <input type="text" required="required" class="form-control form-icons"  name="positionCity" placeholder="Město" />
                                          <i class="fi-rr-marker"></i>
                                 </div>
 

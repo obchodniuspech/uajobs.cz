@@ -24,10 +24,12 @@ return new class extends Migration
             $table->string('positionName')->nullable();
             $table->string('positionDesc')->nullable();
             $table->string('positionAddress')->nullable();
+            $table->string('positionCity')->nullable();
             $table->string('categoryId')->nullable();
             $table->string('salaryFrom')->nullable();
             $table->string('salaryTo')->nullable();
             $table->string('jobType')->nullable();
+            $table->boolean('translation')->nullable();
             $table->string('status')->nullable();
             $table->string('status4employer')->nullable();
             $table->string('lang')->nullable();
@@ -65,6 +67,7 @@ return new class extends Migration
                 'positionName' => 'Uklízečka pro obchod',
                 'positionDesc' => 'Obchod cca 20m2',
                 'positionAddress' => 'Jindřicha Bubeníčka 1598/5',
+                'positionCity' => 'Praha',
                 'categoryId' => '25',
                 'salaryFrom' => '100',
                 'salaryTo' => '200',
@@ -86,6 +89,7 @@ return new class extends Migration
                 'positionName' => 'Hlídání dětí',
                 'positionDesc' => '12 a 10 let',
                 'positionAddress' => 'Do Kopečka 37',
+                'positionCity' => 'Praha',
                 'categoryId' => '25',
                 'salaryFrom' => '200',
                 'salaryTo' => '250',

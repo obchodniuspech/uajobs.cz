@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="col-lg-5 text-lg-end mt-sm-15">
                                     <div class="display-flex2">
-                                        <span class="text-sortby">Sort by:</span>
+                                        <!--<span class="text-sortby">Sort by:</span>
                                         <div class="dropdown dropdown-sort">
                                             <button class="btn dropdown-toggle" type="button" id="dropdownSort" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"><span>Newest Post</span> <i class="fi-rr-angle-small-down"></i></button>
                                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownSort">
@@ -93,7 +93,7 @@
                                                 <li><a class="dropdown-item" href="#">Oldest Post</a></li>
                                                 <li><a class="dropdown-item" href="#">Rating Post</a></li>
                                             </ul>
-                                        </div>
+                                        </div>-->
                                         <!--<div class="box-view-type">
                                             <a href="job-grid.html" class="view-type"><img src="./jobhub_frontend/assets/imgs/theme/icons/icon-list.svg" alt="jobhub" /></a>
                                             <a href="job-list.html" class="view-type"><img src="./jobhub_frontend/assets/imgs/theme/icons/icon-grid.svg" alt="jobhub" /></a>
@@ -117,7 +117,7 @@
                                         <div class="row">
                                             <div class="col-lg-7">
                                                 <a href="employers-grid.html"> <a href="employers-grid.html"><span class="card-job-top--company">{{$thisJob->companyName}}</span></a></a>
-                                                <span class="card-job-top--location text-sm"><i class="fi-rr-marker"></i> {{$thisJob->positionAddress}}</span>
+                                                <span class="card-job-top--location text-sm"><i class="fi-rr-marker"></i> {{$thisJob->positionCity}}</span>
                                                 <span class="card-job-top--type-job text-sm"><i class="fi-rr-briefcase"></i> {{$thisJob->jobType}}</span>
                                                 <span class="card-job-top--post-time text-sm"><i class="fi-rr-clock"></i> {{$thisJob->created_at}}</span>
                                             </div>
@@ -135,7 +135,7 @@
                                         <div class="col-lg-9 col-sm-8 col-12">
                                             <a href="job-grid.html" class="btn btn-small background-urgent btn-pink mr-5">Jazyk: {{$thisJob->lang}}</a>
                                             <a href="job-grid.html" class="btn btn-small background-6 disc-btn">Typ: {{$thisJob->jobType}}</a>
-                                           {{-- <a href="job-grid-2.html" class="btn btn-small background-blue-light mr-5">Senior</a>--}}
+                                            <a href="job-grid-2.html" class="btn btn-small background-blue-light mr-5">Kategorie: {{$thisJob->jobType}}</a>
 
                                         </div>
                                         {{-- <div class="col-lg-3 col-sm-4 col-12 text-lg-end d-lg-block d-none">

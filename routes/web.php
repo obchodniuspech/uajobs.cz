@@ -22,12 +22,14 @@ Route::get('/', function () {
 
 
 
-Route::get('/','App\Http\Controllers\JobsController@showAll')->name('Procházet inzeráty');
+///Route::get('/','App\Http\Controllers\JobsController@showAll')->name('Procházet inzeráty');
+Route::get('/','App\Http\Controllers\JobsController@newOffer')->name('Nový inzerát');
 Route::get('/new-offer','App\Http\Controllers\JobsController@newOffer')->name('Nový inzerát');
 Route::get('/new-offer-done','App\Http\Controllers\JobsController@newOfferDone')->name('Nový inzerát uloženo');
 Route::post('/new-offer','App\Http\Controllers\JobsController@store')->name('Uložit inzerát');
 Route::get('/looking4job','App\Http\Controllers\JobsController@newOffer')->name('Hledám práci');
 Route::get('/help-uajobscz','App\Http\Controllers\JobsController@heplUaJobs')->name('Pomoc UAjobs.cz');
+Route::get('/help-ua','App\Http\Controllers\JobsController@heplUa')->name('Další pomoc UA');
 
 
 
