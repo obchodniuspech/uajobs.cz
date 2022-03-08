@@ -35,121 +35,94 @@
     </section>
     <section class="section-box mt-50">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="job-overview">
-                        <div class="row">
-                            <div class="col-md-4 d-flex">
-                                <div class="sidebar-icon-item"><i class="fi-rr-briefcase"></i></div>
-                                <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Job Type</span>
-                                    <strong class="small-heading">{{$job->jobType}}</strong>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-flex mt-sm-15">
-                                <div class="sidebar-icon-item"><i class="fi-rr-marker"></i></div>
-                                <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Location</span>
-                                    <strong class="small-heading">{{$job->positionCity}}</strong>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-flex mt-sm-15">
-                                <div class="sidebar-icon-item"><i class="fi-rr-dollar"></i></div>
-                                <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Hodinová mzda</span>
-                                    <strong class="small-heading">{{$job->salaryFrom}}-{{$job->salaryTo}} Kč/hod</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-30">
-                            <div class="col-md-4 d-flex">
-                                <div class="sidebar-icon-item"><i class="fi-rr-clock"></i></div>
-                                <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Date posted</span>
-                                    <strong class="small-heading">{{$job->created_at}}</strong>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-flex mt-sm-15">
-                                <div class="sidebar-icon-item"><i class="fi-rr-time-fast"></i></div>
-                                <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Expiration date</span>
-                                    <strong class="small-heading">April 06, 2022</strong>
-                                </div>
-                            </div>
-                            {{--<div class="col-md-4 d-flex mt-sm-15">
-                                <div class="sidebar-icon-item"><i class="fi-rr-briefcase"></i></div>
-                                <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Job Title</span>
-                                    <strong class="small-heading">Designer</strong>
-                                </div>
-                            </div>--}}
-                        </div>
-                        <div class="row mt-50">
-                            <div class="col-lg-6 col-md-12">
-                                <a href="#/" id="reply" class="btn btn-default mr-10">Odpovědět</a>
-                                {{--<a href="#" class="btn btn-border">Save job</a>--}}
-                            </div>
-                            <div class="col-lg-6 col-md-12 mt-lg-30">
-                                {{--<div class="social-share">
-                                    <a href="#" class="btn btn-border btn-sm mr-10"><img alt="jobhub" src="assets/imgs/theme/icons/share-fb.svg" /> Share</a>
-                                    <a href="#" class="btn btn-border btn-sm mr-10"><img alt="jobhub" src="assets/imgs/theme/icons/share-tw.svg" /> Tweet</a>
-                                    <a href="#" class="btn btn-border btn-sm"><img alt="jobhub" src="assets/imgs/theme/icons/share-pinterest.svg" /> Pin</a>
-                                </div>--}}
-                            </div>
-                        </div>
-
-<form method="post" action="{{ route('Odeslat zprávu')}}" class="formContact" id="contactForm">
-    @csrf
-    <input type="hidden" name="id" value="{{$job->id}}">
-    <!-- Name input -->
-    <div class="mb-3">
-      <label class="form-label" for="name">Name</label>
-      <input class="form-control" id="name" required="required" type="text" placeholder="Name" data-sb-validations="required" />
-      <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
-    </div>
-
-<!-- Email address input -->
-<div class="mb-3">
-  <label class="form-label" for="emailAddress">Email Address</label>
-  <input class="form-control" id="emailAddress" required="required" type="email" placeholder="Email Address" data-sb-validations="required, email" />
-</div>
-
-<!-- phone address input -->
-<div class="mb-3">
-  <label class="form-label" for="emailAddress">Phone</label>
-  <input class="form-control" id="emailAddress" required="required" type="text" placeholder="Phone" data-sb-validations="required, email" />
-
-</div>
-
-<!-- Message input -->
-<div class="mb-3">
-  <label class="form-label" for="message">Message</label>
-  <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
-  <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
-</div>
-
-    <button type="submit" class="btn btn-success g-recaptcha"
-    data-sitekey="reCAPTCHA_site_key"
-    data-callback='onSubmit'
-    data-action='submit'>Odeslat</button>
-</form>
-
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
-                    <div class="content-single content-except">
-                        <h5>Popis pozice</h5>
-                        {{$job->positionDesc}}
-                    </div>
-
-
-
-                </div>
 
 
 
 
+
+<div class="row">
+
+    @foreach ($responses AS $response)
+    <div class="col-lg-3 col-md-6">
+        <div class="card-grid-2 hover-up">
+            <div class="card-grid-2-link">
+                {{--<a href="#"><i class="fi-rr-shield-check"></i></a>
+                <a href="#"><i class="fi-rr-bookmark"></i></a>--}}
             </div>
+            <div class="text-center card-grid-2-image-rd online">
+                <a href="candidates-single.html">
+                    <figure><img alt="jobhub" src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/page/candidates/img-candidate.png" /></figure>
+                </a>
+            </div>
+            <div class="card-block-info">
+                <div class="card-profile">
+                    <a href="candidates-single.html"><strong>{{$response->messageFromName}}</strong></a>
+                    <span class="text-sm">{{$response->messageFrom}}<br>{{$response->messageFromPhone}}</span>
+                    {{--<div class="rate-reviews-small">
+                        <span><img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/icons/star.svg" alt="jobhub" /></span>
+                        <span><img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/icons/star.svg" alt="jobhub" /></span>
+                        <span><img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/icons/star.svg" alt="jobhub" /></span>
+                        <span><img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/icons/star.svg" alt="jobhub" /></span>
+                        <span><img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/icons/star.svg" alt="jobhub" /></span>
+                        <span class="ml-10 text-muted text-small">(5.0)</span>
+                    </div>--}}
+                </div>
+                <div class="employers-info d-flex align-items-center justify-content-center mt-15">
+                    {{$response->messageTextUA}}
+                    {{--<span class="d-flex align-items-center"><i class="fi-rr-marker mr-5 ml-0"></i> Chicago, US</span>
+                    <span class="d-flex align-items-center ml-25"><i class="fi-rr-briefcase mr-5"></i>Software</span>--}}
+                </div>
+                <div class="card-2-bottom card-2-bottom-candidate mt-30">
+                    <div class="text-center">
+                        <a href="#" class="btn btn-tags-sm mb-10 mr-5">
+
+
+                            <option value="not_lang">Neumím Česky, ani Anglicky</option>
+                              <option value="czech">Umím Česky</option>
+                              <option value="czech_basics">Umím základy Češtiny</option>
+                              <option value="english">Umím Anglicky</option>
+                              <option value="other">Jiné</option>
+
+
+                            @switch($response->messageFromLang)
+                                @case("czech")
+                                    Mluví Česky
+                                    @break
+
+                                @case("not_lang")
+                                    Nemluví Česky ani Anglicky
+                                @break
+                                @case("not_lang")
+                                    Nemluví Česky ani Anglicky
+                                @break
+                                @case("czech_basics")
+                                    Základy Češtiny
+                                @break
+                                @case("english")
+                                    Mluví Anglicky
+                                @break
+
+                                @default
+                                    Jiný jazyk
+                            @endswitch
+                        </a>
+                    </div>
+                    {{--<div class="text-center mt-25 mb-5">
+                        <a href="candidates-single.html" class="btn btn-border btn-brand-hover">Dokumenty</a>
+                    </div>--}}
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+
+
+</div>
+
+
+
+
         </div>
     </section>
 

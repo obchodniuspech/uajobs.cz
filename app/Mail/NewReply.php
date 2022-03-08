@@ -49,7 +49,7 @@ class NewReply extends Mailable
     public function build()
     {
 
-        $linkHash = md5($this->order->companyContactEmail.$this->order->ip."_PraseciHlava2006");
+        $linkHash = md5($this->order->companyContactEmail.$this->order->ip.env('APP_HASHSALT'));
         $link = "https://uajobs.cz/view-responses/".$this->order->id."/".$linkHash;
         return $this->from('info@uajobs.cz', 'UAjobs.cz')
         ->view('emails.newresponse')->with([

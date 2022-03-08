@@ -19,14 +19,21 @@ return new class extends Migration
         Schema::create('jobMessages', function (Blueprint $table) {
             $table->id();
             $table->string('jobId')->nullable();
-            $table->string('messageFrom');
+            $table->string('messageFrom')->nullable();
+            $table->string('messageFromName')->nullable();
+            $table->string('messageFromPhone')->nullable();
+            $table->string('messageFromLang')->nullable();
             $table->string('messageTo')->nullable();
             $table->string('messageSubject')->nullable();
             $table->string('messageSubjectUA')->nullable();
-            $table->boolean('messageAttach')->nullable();
-            $table->integer('messageText')->nullable();
-            $table->integer('messageTextUA')->nullable();
+            $table->string('messageAttach')->nullable();
+            $table->string('messageText')->nullable();
+            $table->string('messageTextUA')->nullable();
             $table->string('messageStatus')->nullable();
+            $table->string('employerTagOK')->nullable();
+            $table->string('employerTagKO')->nullable();
+            $table->string('employerTagAlert')->nullable();
+            $table->string('employerTagBookmark')->nullable();
             $table->string('ip')->nullable();
             $table->rememberToken();
             $table->timestamps();

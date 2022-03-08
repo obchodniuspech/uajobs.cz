@@ -104,27 +104,38 @@
     <!-- Name input -->
     <div class="mb-3">
       <label class="form-label" for="name">Name</label>
-      <input class="form-control" id="name" required="required" type="text" placeholder="Name" data-sb-validations="required" />
+      <input class="form-control" name="name" id="name" required="required" type="text" placeholder="Name" data-sb-validations="required" />
       <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
     </div>
 
 <!-- Email address input -->
 <div class="mb-3">
   <label class="form-label" for="emailAddress">Email Address</label>
-  <input class="form-control" id="emailAddress" required="required" type="email" placeholder="Email Address" data-sb-validations="required, email" />
+  <input class="form-control" name="emailAddress" id="emailAddress" required="required" type="email" placeholder="Email Address" data-sb-validations="required, email" />
 </div>
 
 <!-- phone address input -->
 <div class="mb-3">
   <label class="form-label" for="emailAddress">Phone</label>
-  <input class="form-control" id="emailAddress" required="required" type="text" placeholder="Phone" data-sb-validations="required, email" />
+  <input class="form-control" name="fromPhone" id="emailAddress" required="required" type="text" placeholder="Phone" data-sb-validations="required, email" />
 
+</div>
+
+<div class="mb-3">
+  <label class="form-label" for="langSkills">Vaše jazykové znalosti</label>
+  <select class="form-control" name="langSkills" id="langSkills">
+      <option value="not_lang">Neumím Česky, ani Anglicky</option>
+      <option value="czech">Umím Česky</option>
+      <option value="czech_basics">Umím základy Češtiny</option>
+      <option value="english">Umím Anglicky</option>
+      <option value="other">Jiné</option>
+  </select>
 </div>
 
 <!-- Message input -->
 <div class="mb-3">
   <label class="form-label" for="message">Message</label>
-  <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+  <textarea class="form-control" name="message" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
   <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
 </div>
 

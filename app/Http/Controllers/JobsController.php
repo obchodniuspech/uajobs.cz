@@ -68,7 +68,13 @@ class jobsController extends Controller
     public function showResponses (Request $req) {
         $jobDetail = DB::table('jobOffers')->where('id',$req->id)->first();
         $jobResponses = DB::table('jobMessages')->where('jobId',$req->id)->get();
-        return view('jobs.responses',['job'=>$jobDetail]);
+        $linkHash = md5($jobDetail->companyContactEmail.$jobDetail->ip.env('APP_HASHSALT'));
+        if ($linkHash==$req->hash) {
+            return view('jobs.responses',['job'=>$jobDetail,'responses'=>$jobResponses]);
+        }
+        else {
+            return view('jobs.responsesError');
+        }
     }
 
        
@@ -79,24 +85,28 @@ class jobsController extends Controller
         Mail::to("pesatmichal@gmail.com")->send(new NewReply($jobDetail));
         
         
-        
         DB::table('jobMessages')->insert(
               array(
-                  'jobId' => $req->companyId,
-                  'messageFrom' => $req->companyName,
-                  'messageTo' => $req->companyContactPhone,
-                  'messageSubject' => $req->companyContactEmail,
-                  'messageSubjectUA' => $req->publishContact,
-                  'messageAttach' => $req->categoryId,
-                  'messageText' => $req->publishTime,
-                  'messageTextUA' => $req->positionName,
-                  'messageStatus' => $req->positionNameUA,
-                  'positionDescUA' => $req->positionDescUA,
+                  'jobId' => $req->id,
+                  'messageFrom' => $req->emailAddress,
+                  'messageFromName' => $req->name,
+                  'messageFromPhone' => $req->fromPhone,
+                  'messageFromLang' => $req->langSkills,
+                  'messageTo' => $jobDetail->companyContactEmail,
+                  'messageSubject' => "Nová odpověď na pozici ".$jobDetail->positionName,
+                  'messageSubjectUA' => "Nová odpověď na pozici ".$jobDetail->positionName,
+                  'messageAttach' => "",
+                  'messageText' => "",
+                  'messageTextUA' => $req->message,
+                  'messageStatus' => "sent",
                   'ip' => $_SERVER['REMOTE_ADDR'],
                   'created_at' => Date("Y-m-d H:i:s"),
               )
           );  
-          return redirect('/message-sent');
+          
+          
+          return view('jobs.messageSent');
+          
           
     }
     

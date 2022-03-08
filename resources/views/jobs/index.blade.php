@@ -83,7 +83,7 @@
                         <div class="box-filters-job mt-15 mb-10">
                             <div class="row">
                                 <div class="col-lg-7">
-                                    <span class="text-small">Celkem <strong>{{$totalCount}} </strong>nabídek práce</span>
+                                    <span class="text-small">всього <strong>{{$totalCount}} </strong>пропозицій роботи</span>
                                 </div>
                                 <div class="col-lg-5 text-lg-end mt-sm-15">
                                     <div class="display-flex2">
@@ -197,11 +197,11 @@
                     <div class="sidebar-shadow none-shadow mb-30">
                         <div class="sidebar-filters">
                             <div class="filter-block mb-30">
-                                <h5 class="medium-heading mb-15">Místo</h5>
+                                <h5 class="medium-heading mb-15">Місто</h5>
 
                                 <div class="form-group select-style select-style-icon">
                                     <select name="filterLocation" class="form-control form-icons select-active">
-                                        <option value="all">Vše
+                                        <option value="all">всі
                                         @foreach ($cities AS $city)
                                             <option @isset ($req->filterLocation) @if ($city->positionCity == $req->filterLocation) selected="selected" @endif @endisset>{{$city->positionCity}}
                                         @endforeach
@@ -210,29 +210,29 @@
                                 </div>
                             </div>
                             <div class="filter-block mb-30">
-                                <h5 class="medium-heading mb-15">Kategorie</h5>
+                                <h5 class="medium-heading mb-15">Категорія</h5>
                                 <div class="form-group select-style select-style-icon">
                                     <select name="filterCategory" class="form-control form-icons select-active">
-                                        <option value="all">Vše
+                                        <option value="all">всі
                                         @foreach ($categories AS $cat)
-                                            <option @isset ($req->filterLocation) @if ($cat->id == $req->filterCategory) selected="selected" @endif @endisset value="{{$cat->id}}">{{$cat->categoryName}}
+                                            <option @isset ($req->filterLocation) @if ($cat->id == $req->filterCategory) selected="selected" @endif @endisset value="{{$cat->id}}">{{$cat->categoryNameUA}}
                                         @endforeach
                                     </select>
                                     <i class="fi-rr-briefcase"></i>
                                 </div>
                             </div>
                             <div class="filter-block mb-30">
-                                <h5 class="medium-heading mb-15">Typ úvazku</h5>
+                                <h5 class="medium-heading mb-15">Тип роботи</h5>
 
                                 <div class="form-group select-style select-style-icon">
                                     <select name="filterType" class="form-control form-icons select-active">
-                                        <option value="all">Vše</option>
-                                        <option value="fullTime" @isset ($req->filterType) @if ($req->filterType=="fullTime") selected="selected" @endif @endisset>Plný úvazek</option>
-                                        <option value="halfTime" @isset ($req->filterType) @if ($req->filterType=="halfTime") selected="selected" @endif @endisset>Zkrácený úvazek</option>
-                                        <option value="parttime" @isset ($req->filterType) @if ($req->filterType=="parttime") selected="selected" @endif @endisset>Brigáda</option>
-                                        <option value="freelance" @isset ($req->filterType) @if ($req->filterType=="freelance") selected="selected" @endif @endisset>Freelance</option>
-                                        <option value="time2time" @isset ($req->filterType) @if ($req->filterType=="time2time") selected="selected" @endif @endisset>Nárazová výpomoc</option>
-                                        <option value="personal" @isset ($req->filterType) @if ($req->filterType=="personal") selected="selected" @endif @endisset>Výpomoc v domácnostech / soukromé inzeráty apod.</option>
+                                        <option value="all">всі</option>
+                                        <option value="fullTime" @isset ($req->filterType) @if ($req->filterType=="fullTime") selected="selected" @endif @endisset>Повний день/option>
+                                        <option value="halfTime" @isset ($req->filterType) @if ($req->filterType=="halfTime") selected="selected" @endif @endisset>Неповний робочий день</option>
+                                        <option value="parttime" @isset ($req->filterType) @if ($req->filterType=="parttime") selected="selected" @endif @endisset>бригада</option>
+                                        <option value="freelance" @isset ($req->filterType) @if ($req->filterType=="freelance") selected="selected" @endif @endisset>Позаштатний</option>
+                                        <option value="time2time" @isset ($req->filterType) @if ($req->filterType=="time2time") selected="selected" @endif @endisset>Невідкладна допомога</option>
+                                        <option value="personal" @isset ($req->filterType) @if ($req->filterType=="personal") selected="selected" @endif @endisset>Допомога по дому / приватні оголошення тощо.</option>
                                     </select>
                                     <i class="fi-rr-briefcase"></i>
                                 </div>
@@ -242,8 +242,7 @@
                                     <ul class="list-checkbox">
                                         <li>
                                             <label class="cb-container">
-                                                <input type="checkbox"> <span class="text-small">Full Time
-                                                    Jobs</span>
+                                                <input type="checkbox"> <span class="text-small">Full Time Jobs</span>
                                                 <span class="checkmark"></span>
                                             </label>
                                             <span class="number-item">235</span>
@@ -283,10 +282,10 @@
                                 --}}
                             </div>
                             <div class="filter-block mb-30">
-                                <h5 class="medium-heading mb-10">Jazyk</h5>
+                                <h5 class="medium-heading mb-10">Мову</h5>
                                 <div class="form-group select-style select-style-icon">
                                     <select name="filterLang" class="form-control form-icons select-active">
-                                        <option value="all">Vše</option>
+                                        <option value="all">всі</option>
                                         <option value="not_needed" @isset ($req->filterLang) @if ($req->filterLang=="not_needed") selected="selected" @endif @endisset>Jazyk není nutný</option>
                                         <option value="czech_needed" @isset ($req->filterLang) @if ($req->filterLang=="czech_needed") selected="selected" @endif @endisset>Nutná čeština</option>
                                         <option value="czech_basics_needed" @isset ($req->filterLang) @if ($req->filterLang=="czech_basics_needed") selected="selected" @endif @endisset>Nutné základy češtiny</option>
@@ -322,7 +321,7 @@
                                 </div>
                             </div>-->
                             <div class="buttons-filter">
-                                <button class="btn btn-default">Filtrovat</button>
+                                <button class="btn btn-default">Фільтр</button>
                                 {{--<a href="./"><button class="btn">Reset filter</button></a>--}}
                             </div>
                         </div>
