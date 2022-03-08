@@ -211,7 +211,7 @@
                                             <span class="ml-5"><img src="./jobhub_frontend/assets/imgs/theme/icons/bookmark.svg" alt="jobhub"></span>
                                         </div>--}}
                                         <div class="col-lg-3 col-sm-4 col-12 text-lg-end d-lg-block d-none">
-                                            <a href="{{ route('Kontaktovat', $thisJob->id) }}"><button class="btn btn-primary"><i class="bi bi-envelope"></i> Деталі оголошення</button></a>
+                                            <a href="{{ route('Kontaktovat', $thisJob->id) }}"><button class="btn btn-primary"><i class="bi bi-envelope"></i> Відповісти</button></a>
                                         </div>
                                     </div>
                                 </div>
