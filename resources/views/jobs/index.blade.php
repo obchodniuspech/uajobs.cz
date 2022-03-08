@@ -120,7 +120,29 @@
                                             <div class="col-lg-7">
                                                 <a href="#/"><span class="card-job-top--company">{{$thisJob->companyName}}</span></a>
                                                 <span class="card-job-top--location text-sm"><i class="fi-rr-marker"></i> {{$thisJob->positionCity}}</span>
-                                                <span class="card-job-top--type-job text-sm"><i class="fi-rr-briefcase"></i> {{$thisJob->jobType}}</span>
+                                                <span class="card-job-top--type-job text-sm"><i class="fi-rr-briefcase"></i> @switch($thisJob->jobType)
+                                                    @case("fullTime")
+                                                        Повний день
+                                                    @break
+                                                    @case("halfTime")
+                                                        Неповний робочий день
+                                                    @break
+                                                    @case("partTime")
+                                                        бригада
+                                                    @break
+                                                    @case("freelance")
+                                                        Позаштатний
+                                                    @break
+                                                    @case("time2time")
+                                                        Невідкладна допомога
+                                                    @break
+                                                    @case("personal")
+                                                        Допомога по дому / приватні оголошення тощо.
+                                                    @break
+
+                                                    @default
+                                                        Other
+                                                @endswitch</span>
                                                 <span class="card-job-top--post-time text-sm"><i class="fi-rr-clock"></i> {{$thisJob->created_at}}</span>
                                             </div>
                                             <div class="col-lg-5 text-lg-end">
@@ -155,7 +177,32 @@
                                                         Jiný jazyk
                                                 @endswitch
                                             </a>
-                                            <a href="#/" class="btn btn-small background-6 disc-btn">Тип роботи: {{$thisJob->jobType}}</a>
+                                            <a href="#/" class="btn btn-small background-6 disc-btn">Тип роботи:
+
+                                                @switch($thisJob->jobType)
+                                                    @case("fullTime")
+                                                        Повний день
+                                                    @break
+                                                    @case("halfTime")
+                                                        Неповний робочий день
+                                                    @break
+                                                    @case("partTime")
+                                                        бригада
+                                                    @break
+                                                    @case("freelance")
+                                                        Позаштатний
+                                                    @break
+                                                    @case("time2time")
+                                                        Невідкладна допомога
+                                                    @break
+                                                    @case("personal")
+                                                        Допомога по дому / приватні оголошення тощо.
+                                                    @break
+
+                                                    @default
+                                                        Other
+                                                @endswitch
+                                            </a>
                                             <!--<a href="#/" class="btn btn-small background-blue-light mr-5">Категорія: {{$thisJob->jobType}}</a>-->
 
                                         </div>
@@ -164,7 +211,7 @@
                                             <span class="ml-5"><img src="./jobhub_frontend/assets/imgs/theme/icons/bookmark.svg" alt="jobhub"></span>
                                         </div>--}}
                                         <div class="col-lg-3 col-sm-4 col-12 text-lg-end d-lg-block d-none">
-                                            <a href="{{ route('Kontaktovat', $thisJob->id) }}"><button class="btn btn-primary"><i class="bi bi-envelope"></i> Kontaktovat</button></a>
+                                            <a href="{{ route('Kontaktovat', $thisJob->id) }}"><button class="btn btn-primary"><i class="bi bi-envelope"></i> Деталі оголошення</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +293,7 @@
                                 <div class="form-group select-style select-style-icon">
                                     <select name="filterType" class="form-control form-icons select-active">
                                         <option value="all">всі</option>
-                                        <option value="fullTime" @isset ($req->filterType) @if ($req->filterType=="fullTime") selected="selected" @endif @endisset>Повний день/option>
+                                        <option value="fullTime" @isset ($req->filterType) @if ($req->filterType=="fullTime") selected="selected" @endif @endisset>Повний день</option>
                                         <option value="halfTime" @isset ($req->filterType) @if ($req->filterType=="halfTime") selected="selected" @endif @endisset>Неповний робочий день</option>
                                         <option value="parttime" @isset ($req->filterType) @if ($req->filterType=="parttime") selected="selected" @endif @endisset>бригада</option>
                                         <option value="freelance" @isset ($req->filterType) @if ($req->filterType=="freelance") selected="selected" @endif @endisset>Позаштатний</option>

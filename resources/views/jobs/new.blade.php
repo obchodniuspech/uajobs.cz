@@ -103,7 +103,7 @@
                                     <select name="jobType" required="required" class="form-control form-icons select-active">
                                         <option value="fullTime">Plný úvazek</option>
                                         <option value="halfTime">Zkrácený úvazek</option>
-                                        <option value="parttime">Brigáda</option>
+                                        <option value="partTime">Brigáda</option>
                                         <option value="freelance">Freelance</option>
                                         <option value="time2time">Nárazová výpomoc</option>
                                         <option value="personal">Výpomoc v domácnostech / soukromé inzeráty apod.</option>
