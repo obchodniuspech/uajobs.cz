@@ -115,10 +115,10 @@
                                         <figure><img alt="jobhub" src="./jobhub_frontend/assets/imgs/page/job/digital.png" /></figure>
                                     </div>
                                     <div class="card-job-top--info">
-                                        <h6 class="card-job-top--info-heading"><a href="{{ route('Kontaktovat', $thisJob->id) }}">{{$thisJob->positionName}}</a></h6>
+                                        <h6 class="card-job-top--info-heading"><a href="{{ route('Kontaktovat', $thisJob->id) }}">{{$thisJob->positionNameUA}}</a></h6>
                                         <div class="row">
                                             <div class="col-lg-7">
-                                                <a href="employers-grid.html"> <a href="employers-grid.html"><span class="card-job-top--company">{{$thisJob->companyName}}</span></a></a>
+                                                <a href="#/"><span class="card-job-top--company">{{$thisJob->companyName}}</span></a>
                                                 <span class="card-job-top--location text-sm"><i class="fi-rr-marker"></i> {{$thisJob->positionCity}}</span>
                                                 <span class="card-job-top--type-job text-sm"><i class="fi-rr-briefcase"></i> {{$thisJob->jobType}}</span>
                                                 <span class="card-job-top--post-time text-sm"><i class="fi-rr-clock"></i> {{$thisJob->created_at}}</span>
@@ -130,14 +130,33 @@
                                     </div>
                                 </div>
                                 <div class="card-job-description mt-20">
-                                   {{$thisJob->positionDesc}}
+                                   {{$thisJob->positionDescUA}}
                                 </div>
                                 <div class="card-job-bottom mt-25">
                                     <div class="row">
                                         <div class="col-lg-9 col-sm-8 col-12">
-                                            <a href="job-grid.html" class="btn btn-small background-urgent btn-pink mr-5">Jazyk: {{$thisJob->lang}}</a>
-                                            <a href="job-grid.html" class="btn btn-small background-6 disc-btn">Typ: {{$thisJob->jobType}}</a>
-                                            <a href="job-grid-2.html" class="btn btn-small background-blue-light mr-5">Kategorie: {{$thisJob->jobType}}</a>
+                                            <a href="#/" class="btn btn-small background-urgent btn-pink mr-5">Мову:
+                                                @switch($thisJob->lang)
+                                                    @case("czech_needed")
+                                                        Потрібна чеська мова
+                                                        @break
+
+                                                    @case("not_needed")
+                                                        Мова не потрібна
+                                                    @break
+                                                    @case("czech_basics_needed")
+                                                        Необхідні основи чеської мови
+                                                    @break
+                                                    @case("english_needed")
+                                                        англійська
+                                                    @break
+                                                        Інший
+                                                    @default
+                                                        Jiný jazyk
+                                                @endswitch
+                                            </a>
+                                            <a href="#/" class="btn btn-small background-6 disc-btn">Тип роботи: {{$thisJob->jobType}}</a>
+                                            <a href="#/" class="btn btn-small background-blue-light mr-5">Категорія: {{$thisJob->jobType}}</a>
 
                                         </div>
                                         {{-- <div class="col-lg-3 col-sm-4 col-12 text-lg-end d-lg-block d-none">
@@ -286,10 +305,10 @@
                                 <div class="form-group select-style select-style-icon">
                                     <select name="filterLang" class="form-control form-icons select-active">
                                         <option value="all">всі</option>
-                                        <option value="not_needed" @isset ($req->filterLang) @if ($req->filterLang=="not_needed") selected="selected" @endif @endisset>Jazyk není nutný</option>
-                                        <option value="czech_needed" @isset ($req->filterLang) @if ($req->filterLang=="czech_needed") selected="selected" @endif @endisset>Nutná čeština</option>
-                                        <option value="czech_basics_needed" @isset ($req->filterLang) @if ($req->filterLang=="czech_basics_needed") selected="selected" @endif @endisset>Nutné základy češtiny</option>
-                                        <option value="english_needed" @isset ($req->filterLang) @if ($req->filterLang=="english_needed") selected="selected" @endif @endisset>Angličtina</option>
+                                        <option value="not_needed" @isset ($req->filterLang) @if ($req->filterLang=="not_needed") selected="selected" @endif @endisset>Мова не потрібна</option>
+                                        <option value="czech_needed" @isset ($req->filterLang) @if ($req->filterLang=="czech_needed") selected="selected" @endif @endisset>Потрібна чеська мова</option>
+                                        <option value="czech_basics_needed" @isset ($req->filterLang) @if ($req->filterLang=="czech_basics_needed") selected="selected" @endif @endisset>Необхідні основи чеської мови</option>
+                                        <option value="english_needed" @isset ($req->filterLang) @if ($req->filterLang=="english_needed") selected="selected" @endif @endisset>англійська</option>
                                     </select>
                                     <i class="fi-rr-briefcase"></i>
                                 </div>
