@@ -4,7 +4,7 @@
         <div class="container">
             <!--<div class="row">
                 <div class="col-md-4 col-sm-12">
-                    <a href="index.html"><img alt="jobhub" src="./jobhub_frontend/assets/imgs/theme/jobhub-logo.svg" /></a>
+                    <a href="index.html"><img alt="jobhub" src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/jobhub-logo.svg" /></a>
                     <div class="mt-20 mb-20">Jobhub is the heart of the design community and the best resource to
                         discover and connect with designers and jobs worldwide.</div>
                 </div>
@@ -64,23 +64,23 @@
     </footer>
     <!-- End Footer -->
     <!-- Vendor JS-->
-    <script src="./jobhub_frontend/assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="./jobhub_frontend/assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="./jobhub_frontend/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="./jobhub_frontend/assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="./jobhub_frontend/assets/js/plugins/waypoints.js"></script>
-    <script src="./jobhub_frontend/assets/js/plugins/wow.js"></script>
-    <script src="./jobhub_frontend/assets/js/plugins/magnific-popup.js"></script>
-    <script src="./jobhub_frontend/assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="./jobhub_frontend/assets/js/plugins/select2.min.js"></script>
-    <script src="./jobhub_frontend/assets/js/plugins/isotope.js"></script>
-    <script src="./jobhub_frontend/assets/js/plugins/scrollup.js"></script>
-    <script src="./jobhub_frontend/assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/plugins/waypoints.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/plugins/wow.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/plugins/magnific-popup.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/plugins/select2.min.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/plugins/isotope.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/plugins/scrollup.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/plugins/swiper-bundle.min.js"></script>
 
-    <script src="./jobhub_frontend/assets/js/noUISlider.js"></script>
-    <script src="./jobhub_frontend/assets/js/slider.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/noUISlider.js"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/slider.js"></script>
     <!-- Template  JS -->
-    <script src="./jobhub_frontend/assets/js/main.js?v=1.0"></script>
+    <script src="{{ env('APP_URL') }}/jobhub_frontend/assets/js/main.js?v=1.0"></script>
 </body>
 
 </html>

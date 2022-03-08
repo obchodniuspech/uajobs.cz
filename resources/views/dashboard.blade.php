@@ -20,6 +20,7 @@
                             <th>Přeloženo</th>
                             <th>Stav</th>
                             <th>Datum vložení</th>
+                            <th>Upravit</th>
                         </thead>
                         <tbody>
                             @foreach ($jobs AS $thisJob)
@@ -31,6 +32,7 @@
                                     <td>{{$thisJob->translation}}</td>
                                     <td>{{$thisJob->status}}</td>
                                     <td>{{$thisJob->created_at}}</td>
+                                    <td><a href="{{ route('Upravit práci', $thisJob->id) }}">Upravit</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

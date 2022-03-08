@@ -12,11 +12,25 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="./jobhub_frontend/assets/imgs/theme/favicon.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/favicon.svg" />
     <!-- Template CSS -->
-    <link rel="stylesheet" href="./jobhub_frontend/assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/jobhub_frontend/assets/css/plugins/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./jobhub_frontend/assets/css/main.css?v=1.0" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/jobhub_frontend/assets/css/main.css?v=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $( document ).ready(function() {
+        $( "#contactForm" ).hide();
+
+        $( "#reply" ).on( "click", function() {
+          $( "#contactForm" ).toggle();
+        });
+
+    });
+
+
+    </script>
+
 
     <!-- Foxentry start -->
     <script type="text/javascript" async>
@@ -42,7 +56,7 @@
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="text-center">
-                    <img src="./jobhub_frontend/assets/imgs/theme/loading.gif" alt="jobhub" />
+                    <img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/loading.gif" alt="jobhub" />
                 </div>
             </div>
         </div>
@@ -52,8 +66,8 @@
             <div class="main-header">
                 <div class="header-left">
                     <div class="header-logo">
-                        <a href="./" class="d-flex">
-                            <img alt="jobhub" src="./jobhub_frontend/assets/imgs/uajobs_logo.png" width="300" />
+                        <a href="{{ env('APP_URL') }}" class="d-flex">
+                            <img alt="jobhub" src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/uajobs_logo.png" width="300" />
                         </a>
                     </div>
                     <div class="header-nav">
@@ -66,7 +80,7 @@
                                     <a  href="{{ route('Hledám práci') }}">Hledám práci</a>
                                 </li>-->
                                 <li>
-                                    <a href="{{ route('Nový inzerát') }}"><i class="bi bi-megaphone"></i> Nabízím práci</a>
+                                    <a href="{{ route('Nový inzerát') }}"><img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/czech.png" height="10"> Nabízím práci</a>
 
                                 </li>
 
@@ -75,7 +89,7 @@
                                 </li>--}}
 
                                 <li>
-                                    <a href="{{ route('Pomoc UAjobs.cz') }}"><i class="bi bi-suit-heart-fill"></i> Spolupráce a partneři</a>
+                                    <a href="{{ route('Pomoc UAjobs.cz') }}"><img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/czech.png" height="10"> Spolupráce a partneři</a>
 
                                 </li>
 

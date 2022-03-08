@@ -7,7 +7,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1 class="section-title-large mb-30 wow animate__ animate__fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">Spolupráce a pomoc našemu portálu</h1>
-                    <h5 class="mb-30 text-muted wow animate__ animate__fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">ozvěte se nám prosím na pesatmichal.dev@gmail.com</h5>
+                    <p class="mb-30 text-muted wow animate__ animate__fadeInUp animated">Bez pomoci těchto partnerů by provoz našeho portálu nebyl možný. Velmi si jejich podpory vážíme a děkujeme za ni!</p>
+                    <h5 class="mb-30 text-muted wow animate__ animate__fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">V případě zájmu o spolupráci se nám prosím ozvěte na e-mail pesatmichal.dev@gmail.com</h5>
                 </div>
             </div>
             <!--<div class="box-banner-services mt-40">

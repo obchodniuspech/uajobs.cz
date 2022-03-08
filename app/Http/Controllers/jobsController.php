@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Invoices;
 use DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewReply;
+
 
 class jobsController extends Controller
 {
@@ -48,13 +51,66 @@ class jobsController extends Controller
             $langWhere = $req->filterLang;
         }
        
-       $jobsTotal = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->orderBy('id','desc')->count();
-       $jobs = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->orderBy('id','desc')->paginate(100);
+       $jobsTotal = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->count();
+       $jobs = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->paginate(100);
        
        $jobsCities = DB::table('jobOffers')->groupBy('positionCity')->get();
         
         return view('jobs.index',['jobs'=>$jobs,"totalCount"=>$jobsTotal,'cities'=>$jobsCities,'categories'=>$categories,'req'=>$req]);
         
+    }
+
+    public function showDetail (Request $req) {
+    $jobDetail = DB::table('jobOffers')->where('id',$req->id)->get();
+        return view('jobs.contact',['job'=>$jobDetail]);
+    }
+    
+    public function showResponses (Request $req) {
+        $jobDetail = DB::table('jobOffers')->where('id',$req->id)->first();
+        $jobResponses = DB::table('jobMessages')->where('jobId',$req->id)->get();
+        return view('jobs.responses',['job'=>$jobDetail]);
+    }
+
+       
+       
+    public function messageSend (Request $req) {
+        $jobDetail = DB::table('jobOffers')->where('id',$req->id)->first();
+        //Mail::to("$jobDetail->companyContactEmail")->send(new NewReply($jobDetail));
+        Mail::to("pesatmichal@gmail.com")->send(new NewReply($jobDetail));
+        
+        
+        
+        DB::table('jobMessages')->insert(
+              array(
+                  'jobId' => $req->companyId,
+                  'messageFrom' => $req->companyName,
+                  'messageTo' => $req->companyContactPhone,
+                  'messageSubject' => $req->companyContactEmail,
+                  'messageSubjectUA' => $req->publishContact,
+                  'messageAttach' => $req->categoryId,
+                  'messageText' => $req->publishTime,
+                  'messageTextUA' => $req->positionName,
+                  'messageStatus' => $req->positionNameUA,
+                  'positionDescUA' => $req->positionDescUA,
+                  'ip' => $_SERVER['REMOTE_ADDR'],
+                  'created_at' => Date("Y-m-d H:i:s"),
+              )
+          );  
+          return redirect('/message-sent');
+          
+    }
+    
+    
+    
+    public function showDetailContact (Request $req) {
+        $jobDetail = DB::table('jobOffers')->where('id',$req->id)->first();
+        return view('jobs.contact',['job'=>$jobDetail]);
+    }
+    
+    public function DashboardEdit (Request $req) {
+        $jobDetail = DB::table('jobOffers')->where('id',$req->id)->first();
+        $categories = DB::table('jobCategories')->get();
+        return view('dashboardedit',['job'=>$jobDetail,'categories'=>$categories]);
     }
 
     public function newOffer (Request $req) {
@@ -74,32 +130,67 @@ class jobsController extends Controller
 
     public function store(Request $req) {
 
-        DB::table('jobOffers')->insert(
-            array(
-                'companyId' => $req->companyId,
-                'companyName' => $req->companyName,
-                'companyContactPhone' => $req->companyContactPhone,
-                'companyContactEmail' => $req->companyContactEmail,
-                'publishContact' => $req->publishContact,
-                'categoryId' => $req->categoryId,
-                'publishTime' => $req->publishTime,
-                'positionName' => $req->positionName,
-                'positionDesc' => $req->positionDesc,
-                'positionAddress' => $req->positionAddress,
-                'positionCity' => $req->positionCity,
-                'salaryFrom' => $req->salaryFrom,
-                'status' => 'waiting_approval',
-                'status4employer' => 'not_confirmed',
-                'lang' => $req->lang,
-                'salaryTo' => $req->salaryTo,
-                'jobType' => $req->jobType,
-                'ip' => $_SERVER['REMOTE_ADDR'],
-                'created_at' => Date("Y-m-d H:i:s"),
-            )
-        );
+    if (isset($req->id)) {
+        DB::table('jobOffers')->where(['id' => $req->id])->update(
+              array(
+                  'companyId' => $req->companyId,
+                  'companyName' => $req->companyName,
+                  'companyContactPhone' => $req->companyContactPhone,
+                  'companyContactEmail' => $req->companyContactEmail,
+                  'publishContact' => $req->publishContact,
+                  'categoryId' => $req->categoryId,
+                  'publishTime' => $req->publishTime,
+                  'positionName' => $req->positionName,
+                  'positionNameUA' => $req->positionNameUA,
+                  'positionDesc' => $req->positionDesc,
+                  'positionDescUA' => $req->positionDescUA,
+                  'positionAddress' => $req->positionAddress,
+                  'positionCity' => $req->positionCity,
+                  'salaryFrom' => $req->salaryFrom,
+                  'status' => $req->status,
+                  'status4employer' => $req->status4employer,
+                  'lang' => $req->lang,
+                  'salaryTo' => $req->salaryTo,
+                  'jobType' => $req->jobType,
+                  'ip' => $_SERVER['REMOTE_ADDR'],
+                  'created_at' => Date("Y-m-d H:i:s"),
+              )
+          );  
+          return redirect('./dashboard');
+          
+    }
+    else {
+      DB::table('jobOffers')->insert(
+          array(
+              'companyId' => $req->companyId,
+              'companyName' => $req->companyName,
+              'companyContactPhone' => $req->companyContactPhone,
+              'companyContactEmail' => $req->companyContactEmail,
+              'publishContact' => $req->publishContact,
+              'categoryId' => $req->categoryId,
+              'publishTime' => $req->publishTime,
+              'positionName' => $req->positionName,
+            'positionNameUA' => $req->positionNameUA,
+            'positionDesc' => $req->positionDesc,
+            'positionDescUA' => $req->positionDescUA,
+              'positionAddress' => $req->positionAddress,
+              'positionCity' => $req->positionCity,
+              'salaryFrom' => $req->salaryFrom,
+              'status' => 'waiting_approval',
+              'status4employer' => 'not_confirmed',
+              'lang' => $req->lang,
+              'salaryTo' => $req->salaryTo,
+              'jobType' => $req->jobType,
+              'ip' => $_SERVER['REMOTE_ADDR'],
+              'created_at' => Date("Y-m-d H:i:s"),
+          )
+      );  
+      return redirect('/new-offer-done');
+      
+    }
+    
 
 
-        return redirect('/new-offer-done');
     }
 
 

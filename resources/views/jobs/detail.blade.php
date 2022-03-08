@@ -4,77 +4,7 @@
 
 <!-- Content -->
 <main class="main">
-  <!--  <section class="section-box-2">
-        <div class="box-head-single none-bg">
-            <div class="container">
-                <h4>There Are 65.866 Jobs<br />Here For you!</h4>
-                <div class="row mt-15 mb-40">
-                    <div class="col-lg-7 col-md-9">
-                        <span class="text-mutted">Discover your next career move, freelance gig, or
-                            internship</span>
-                    </div>
-                    <!--<div class="col-lg-5 col-md-3 text-lg-end text-start">
-                        <ul class="breadcrumbs mt-sm-15">
-                            <li><a href="#">Home</a></li>
-                            <li>Jobs listing</li>
-                        </ul>
-                    </div>--
-                </div>
-                <div class="box-shadow-bdrd-15 box-filters">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="box-search-job">
-                                <form class="form-search-job">
-                                    <input type="text" class="input-search-job" placeholder="UI Designer" />
-                                </form>
-                            </div>
-                            <div class="list-tags-job">
-                                <a href="#" class="text-normal job-tag">UI/UX designing <span class="remove-tags-job"></span></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="d-flex job-fillter">
-                                <div class="d-block d-lg-flex">
-                                    <div class="dropdown job-type">
-                                        <button class="btn dropdown-toggle" type="button" id="dropdownJobType" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-bs-display="static"><i class="fi-rr-briefcase"></i>
-                                            <span>Full time</span> <i class="fi-rr-angle-small-down"></i></button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownJobType">
-                                            <li><a class="dropdown-item active" href="#">Full time</a></li>
-                                            <li><a class="dropdown-item" href="#">Part time</a></li>
-                                            <li><a class="dropdown-item" href="#">Freelancer</a></li>
-                                            <li><a class="dropdown-item" href="#">Online work</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="dropdown">
-                                        <button class="btn dropdown-toggle" type="button" id="dropdownLocation" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"><i class="fi-rr-marker"></i> <span>New
-                                                York, USA</span> <i class="fi-rr-angle-small-down"></i></button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownLocation">
-                                            <li><a class="dropdown-item active" href="#">New York, USA</a></li>
-                                            <li><a class="dropdown-item" href="#">Dallas, USA</a></li>
-                                            <li><a class="dropdown-item" href="#">Chicago, USA</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="dropdown">
-                                        <button class="btn dropdown-toggle" type="button" id="dropdownLocation2" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"><i class="fi-rr-dollar"></i> <span>Salary Range</span> <i class="fi-rr-angle-small-down"></i></button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownLocation2">
-                                            <li><a class="dropdown-item active" href="#">$100 - $500</a></li>
-                                            <li><a class="dropdown-item" href="#">$500 - $1000</a></li>
-                                            <li><a class="dropdown-item" href="#">$1000 - $1500</a></li>
-                                            <li><a class="dropdown-item" href="#">$1500 - $2000</a></li>
-                                            <li><a class="dropdown-item" href="#">Over $2000</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="box-button-find">
-                                    <button class="btn btn-default float-right">Find Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
+
     <section class="section-box mt-80">
         <div class="container">
             <div class="row flex-row-reverse">
@@ -115,7 +45,7 @@
                                         <figure><img alt="jobhub" src="./jobhub_frontend/assets/imgs/page/job/digital.png" /></figure>
                                     </div>
                                     <div class="card-job-top--info">
-                                        <h6 class="card-job-top--info-heading"><a href="{{ route('Kontaktovat', $thisJob->id) }}">{{$thisJob->positionName}}</a></h6>
+                                        <h6 class="card-job-top--info-heading"><a href="{{ route('Zobrazit detail', $thisJob->id) }}">{{$thisJob->positionName}}</a></h6>
                                         <div class="row">
                                             <div class="col-lg-7">
                                                 <a href="employers-grid.html"> <a href="employers-grid.html"><span class="card-job-top--company">{{$thisJob->companyName}}</span></a></a>
@@ -144,9 +74,6 @@
                                             <span><img src="./jobhub_frontend/assets/imgs/theme/icons/shield-check.svg" alt="jobhub"></span>
                                             <span class="ml-5"><img src="./jobhub_frontend/assets/imgs/theme/icons/bookmark.svg" alt="jobhub"></span>
                                         </div>--}}
-                                        <div class="col-lg-3 col-sm-4 col-12 text-lg-end d-lg-block d-none">
-                                            <a href="{{ route('Kontaktovat', $thisJob->id) }}"><button class="btn btn-primary"><i class="bi bi-envelope"></i> Kontaktovat</button></a>
-                                        </div>
                                     </div>
                                 </div>
 
