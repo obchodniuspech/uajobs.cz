@@ -2,12 +2,16 @@
 
 <!-- Content -->
 <main class="main">
+
+<div class="alert alert-warning" role="alert">
+  <h4 class="alert-heading">Prosím šiřte náš portál dále, jedině tak bude fungovat<br>Будь ласка, поширюйте наш портал далі, тільки так він працюватиме</h4>
+</div>   
     
     
-<div class="alert alert-success" role="alert">
+<!--<div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Příjem inzerátů</h4>
   <p>Aktuálně přijímáme inzeráty, od zítřka (max 2 dny) / jakmile se databáze naplní spouštíme zobrazování inzerátů a registraci zájemců, prosím šiřte tento portál dále - děkujeme!</p>
-</div>    
+</div>-->   
     
 <form action="{{ route('Nový inzerát') }}" method="post">
     @csrf

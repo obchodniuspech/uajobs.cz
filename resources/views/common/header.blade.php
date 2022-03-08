@@ -10,7 +10,7 @@
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/shareOnFB3.png" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/favicon.svg" />
     <!-- Template CSS -->
@@ -113,5 +113,4 @@
     </header>
 
     <!--End header-->
-
 

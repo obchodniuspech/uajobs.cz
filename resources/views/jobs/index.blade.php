@@ -4,6 +4,14 @@
 
 <!-- Content -->
 <main class="main">
+
+<div class="alert alert-warning" role="alert">
+  <h4 class="alert-heading">Prosím šiřte náš portál dále, jedině tak bude fungovat<br>Будь ласка, поширюйте наш портал далі, тільки так він працюватиме</h4>
+</div>
+
+<h1>Робота для біженців з України</h1>
+
+
   <!--  <section class="section-box-2">
         <div class="box-head-single none-bg">
             <div class="container">
@@ -83,7 +91,7 @@
                         <div class="box-filters-job mt-15 mb-10">
                             <div class="row">
                                 <div class="col-lg-7">
-                                    <span class="text-small">всього <strong>{{$totalCount}} </strong>пропозицій роботи</span>
+                                    <span class="text-small">всього <strong>{{$totalCount}} </strong>пропозицій роботи - підходить для українців у Чехії</span>
                                 </div>
                                 <div class="col-lg-5 text-lg-end mt-sm-15">
                                     <div class="display-flex2">

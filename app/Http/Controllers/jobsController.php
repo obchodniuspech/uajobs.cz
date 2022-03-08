@@ -183,8 +183,8 @@ class jobsController extends Controller
           );  
           
           if ($req->status=="approved") {
-              Mail::to($jobDetail->companyContactEmail)->send(new InzeratSchvalen($jobDetail));
-              //Mail::to("pesatmichal@gmail.com")->send(new InzeratSchvalen($req));
+              Mail::to($req->companyContactEmail)->send(new InzeratSchvalen($req));
+              Mail::to("pesatmichal.dev@gmail.com")->send(new InzeratSchvalen($req));
           }
           
           return redirect('./dashboard');
