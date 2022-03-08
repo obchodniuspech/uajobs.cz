@@ -31,6 +31,7 @@ Route::post('/new-offer','App\Http\Controllers\JobsController@store')->name('Ulo
 Route::post('/send-message','App\Http\Controllers\JobsController@messageSend')->name('Odeslat zprávu');
 Route::get('/looking4job','App\Http\Controllers\JobsController@newOffer')->name('Hledám práci');
 Route::get('/help-uajobscz','App\Http\Controllers\JobsController@heplUaJobs')->name('Pomoc UAjobs.cz');
+Route::get('/kontakt','App\Http\Controllers\JobsController@contact')->name('Kontakt UAjobs.cz');
 Route::get('/help-ua','App\Http\Controllers\JobsController@heplUa')->name('Další pomoc UA');
 Route::get('/view-responses/{id}/{hash}','App\Http\Controllers\JobsController@showResponses')->name('Zobrazit odpovědi');
 

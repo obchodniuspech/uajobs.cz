@@ -9,6 +9,7 @@ use DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewReply;
+use App\Mail\InzeratSchvalen;
 
 
 class jobsController extends Controller
@@ -51,6 +52,10 @@ class jobsController extends Controller
             $langWhere = $req->filterLang;
         }
        
+       
+       //       $jobs = DB::table('jobOffers')->join('jobCategories', 'jobOffers.categoryId', '=', 'jobCategories.id')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->paginate(100);
+       
+       
        $jobsTotal = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->count();
        $jobs = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->paginate(100);
        
@@ -62,6 +67,7 @@ class jobsController extends Controller
 
     public function showDetail (Request $req) {
     $jobDetail = DB::table('jobOffers')->where('id',$req->id)->get();
+    //$jobDetail->companyContactEmail = str_replace("@", "ahoj", $jobDetail->companyContactEmail);
         return view('jobs.contact',['job'=>$jobDetail]);
     }
     
@@ -81,9 +87,13 @@ class jobsController extends Controller
        
     public function messageSend (Request $req) {
         $jobDetail = DB::table('jobOffers')->where('id',$req->id)->first();
-        //Mail::to("$jobDetail->companyContactEmail")->send(new NewReply($jobDetail));
-        Mail::to("pesatmichal@gmail.com")->send(new NewReply($jobDetail));
         
+        if ($req->surname) {
+            echo "Succesfully sent!";
+            exit;
+        }
+        //Mail::to("pesatmichal@gmail.com")->send(new NewReply($jobDetail));
+        Mail::to("$jobDetail->companyContactEmail")->send(new NewReply($jobDetail));
         
         DB::table('jobMessages')->insert(
               array(
@@ -114,6 +124,8 @@ class jobsController extends Controller
     
     public function showDetailContact (Request $req) {
         $jobDetail = DB::table('jobOffers')->where('id',$req->id)->first();
+        $jobDetail->companyContactEmail = str_replace("@", "&commat;", $jobDetail->companyContactEmail);
+        
         return view('jobs.contact',['job'=>$jobDetail]);
     }
     
@@ -132,8 +144,11 @@ class jobsController extends Controller
        return view('helpus');
    }
    public function heplUa (Request $req) {
-       return view('helpua');
-   }
+          return view('helpua');
+  }
+  public function contact (Request $req) {
+         return view('contact');
+  }
     public function newOfferDone (Request $req) {
         return view('jobs.newDone');
     }
@@ -166,6 +181,12 @@ class jobsController extends Controller
                   'created_at' => Date("Y-m-d H:i:s"),
               )
           );  
+          
+          if ($req->status=="approved") {
+              //Mail::to($jobDetail->companyContactEmail)->send(new InzeratSchvalen($jobDetail));
+              Mail::to("pesatmichal@gmail.com")->send(new InzeratSchvalen($req));
+          }
+          
           return redirect('./dashboard');
           
     }

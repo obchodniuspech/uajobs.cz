@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                <h3>{{$job->positionName}}</h3>
+                <h3>{{$job->positionNameUA}}</h3>
                 {{--<ul class="breadcrumbs">
                     <li><a href="#">Home</a></li>
                     <li>Jobs listing</li>
@@ -42,22 +42,22 @@
                             <div class="col-md-4 d-flex">
                                 <div class="sidebar-icon-item"><i class="fi-rr-briefcase"></i></div>
                                 <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Job Type</span>
+                                    <span class="text-description mb-10">Тип роботи</span>
                                     <strong class="small-heading">{{$job->jobType}}</strong>
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex mt-sm-15">
                                 <div class="sidebar-icon-item"><i class="fi-rr-marker"></i></div>
                                 <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Location</span>
+                                    <span class="text-description mb-10">Місто</span>
                                     <strong class="small-heading">{{$job->positionCity}}</strong>
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex mt-sm-15">
                                 <div class="sidebar-icon-item"><i class="fi-rr-dollar"></i></div>
                                 <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Hodinová mzda</span>
-                                    <strong class="small-heading">{{$job->salaryFrom}}-{{$job->salaryTo}} Kč/hod</strong>
+                                    <span class="text-description mb-10">Заробітна плата за годину</span>
+                                    <strong class="small-heading">{{$job->salaryFrom}}-{{$job->salaryTo}} Kč/годину</strong>
                                 </div>
                             </div>
                         </div>
@@ -65,17 +65,28 @@
                             <div class="col-md-4 d-flex">
                                 <div class="sidebar-icon-item"><i class="fi-rr-clock"></i></div>
                                 <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Date posted</span>
+                                    <span class="text-description mb-10">Дата вставки</span>
                                     <strong class="small-heading">{{$job->created_at}}</strong>
                                 </div>
                             </div>
+                            @if ($job->publishContact=="1")
                             <div class="col-md-4 d-flex mt-sm-15">
                                 <div class="sidebar-icon-item"><i class="fi-rr-time-fast"></i></div>
                                 <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Expiration date</span>
-                                    <strong class="small-heading">April 06, 2022</strong>
+                                    <span class="text-description mb-10">E-mail</span>
+                                    <strong class="small-heading">{!! $job->companyContactEmail !!}</strong>
                                 </div>
                             </div>
+                            @endif
+                            @if ($job->publishContact=="1")
+                            <div class="col-md-4 d-flex mt-sm-15">
+                                <div class="sidebar-icon-item"><i class="fi-rr-time-fast"></i></div>
+                                <div class="sidebar-text-info ml-10">
+                                    <span class="text-description mb-10">Телефон</span>
+                                    <strong class="small-heading">{{$job->companyContactPhone }}</strong>
+                                </div>
+                            </div>
+                            @endif
                             {{--<div class="col-md-4 d-flex mt-sm-15">
                                 <div class="sidebar-icon-item"><i class="fi-rr-briefcase"></i></div>
                                 <div class="sidebar-text-info ml-10">
@@ -86,7 +97,7 @@
                         </div>
                         <div class="row mt-50">
                             <div class="col-lg-6 col-md-12">
-                                <a href="#/" id="reply" class="btn btn-default mr-10">Odpovědět</a>
+                                <a href="#/" id="reply" class="btn btn-default mr-10">Відповісти</a>
                                 {{--<a href="#" class="btn btn-border">Save job</a>--}}
                             </div>
                             <div class="col-lg-6 col-md-12 mt-lg-30">
@@ -103,54 +114,56 @@
     <input type="hidden" name="id" value="{{$job->id}}">
     <!-- Name input -->
     <div class="mb-3">
-      <label class="form-label" for="name">Name</label>
-      <input class="form-control" name="name" id="name" required="required" type="text" placeholder="Name" data-sb-validations="required" />
+      <label class="form-label" for="name">Ваше ім'я та прізвище</label>
+      <input class="form-control" name="name" id="name" required="required" type="text" placeholder="Ваше ім'я та прізвище" data-sb-validations="required" />
       <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
     </div>
 
+    <input class="form-control" placeholder="Surname" name="surname" id="surname" type="text" style="display: None;">
+
 <!-- Email address input -->
 <div class="mb-3">
-  <label class="form-label" for="emailAddress">Email Address</label>
-  <input class="form-control" name="emailAddress" id="emailAddress" required="required" type="email" placeholder="Email Address" data-sb-validations="required, email" />
+  <label class="form-label" for="emailAddress">E-mail</label>
+  <input class="form-control" name="emailAddress" id="emailAddress" required="required" type="email" placeholder="E-mail" data-sb-validations="required, email" />
 </div>
 
 <!-- phone address input -->
 <div class="mb-3">
-  <label class="form-label" for="emailAddress">Phone</label>
-  <input class="form-control" name="fromPhone" id="emailAddress" required="required" type="text" placeholder="Phone" data-sb-validations="required, email" />
+  <label class="form-label" for="emailAddress">Мобільний телефон</label>
+  <input class="form-control" name="fromPhone" id="emailAddress" required="required" type="text" placeholder="Мобільний телефон" data-sb-validations="required, email" />
 
 </div>
 
 <div class="mb-3">
-  <label class="form-label" for="langSkills">Vaše jazykové znalosti</label>
+  <label class="form-label" for="langSkills">Ваші мовні навички</label>
   <select class="form-control" name="langSkills" id="langSkills">
-      <option value="not_lang">Neumím Česky, ani Anglicky</option>
-      <option value="czech">Umím Česky</option>
-      <option value="czech_basics">Umím základy Češtiny</option>
-      <option value="english">Umím Anglicky</option>
-      <option value="other">Jiné</option>
+      <option value="not_lang">Я не розмовляю ні чеською, ні англійською</option>
+      <option value="czech">Я розмовляю чеською</option>
+      <option value="czech_basics">Я знаю основи чеської</option>
+      <option value="english">я знаю англійську</option>
+      <option value="other">Інший</option>
   </select>
 </div>
 
 <!-- Message input -->
 <div class="mb-3">
-  <label class="form-label" for="message">Message</label>
-  <textarea class="form-control" name="message" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+  <label class="form-label" for="message">Ваше повідомлення, уявіть, що ви можете зробити тощо.</label>
+  <textarea class="form-control" required="required" name="message" id="message" type="text" placeholder="Ваше повідомлення, уявіть, що ви можете зробити тощо." style="height: 10rem;" data-sb-validations="required"></textarea>
   <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
 </div>
 
     <button type="submit" class="btn btn-success g-recaptcha"
     data-sitekey="reCAPTCHA_site_key"
     data-callback='onSubmit'
-    data-action='submit'>Odeslat</button>
+    data-action='submit'>Надішліть відповідь</button>
 </form>
 
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
                     <div class="content-single content-except">
-                        <h5>Popis pozice</h5>
-                        {{$job->positionDesc}}
+                        <h5>Опис позиції</h5>
+                        {{$job->positionDescUA}}
                     </div>
 
 

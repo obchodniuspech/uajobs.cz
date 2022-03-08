@@ -20,8 +20,22 @@
         </div>
     </section>
 
+    <div class="section-box">
+        <div class="container">
+            <ul class="list-partners">
+                <li class="wow animate__ animate__fadeInUp hover-up animated" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
+                    <a href="https://foxentry.cz" target="_blank">
+                        <figure><img alt="jobhub" src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/partners/foxentry.png"></figure>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
 </main>
 <!-- End Content -->
 
 
 @include('common.footer')
+

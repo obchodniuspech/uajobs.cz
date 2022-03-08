@@ -93,6 +93,10 @@
 
                                 </li>
 
+                                <li>
+                                    <a href="{{ route('Kontakt UAjobs.cz') }}"><img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/czech.png" height="10"> Kontakt</a>
+                                </li>
+
                             </ul>
                         </nav>
 

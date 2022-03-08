@@ -156,7 +156,7 @@
                                                 @endswitch
                                             </a>
                                             <a href="#/" class="btn btn-small background-6 disc-btn">Тип роботи: {{$thisJob->jobType}}</a>
-                                            <a href="#/" class="btn btn-small background-blue-light mr-5">Категорія: {{$thisJob->jobType}}</a>
+                                            <!--<a href="#/" class="btn btn-small background-blue-light mr-5">Категорія: {{$thisJob->jobType}}</a>-->
 
                                         </div>
                                         {{-- <div class="col-lg-3 col-sm-4 col-12 text-lg-end d-lg-block d-none">
