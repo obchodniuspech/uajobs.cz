@@ -56,8 +56,57 @@ class jobsController extends Controller
        //       $jobs = DB::table('jobOffers')->join('jobCategories', 'jobOffers.categoryId', '=', 'jobCategories.id')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->paginate(100);
        
        
-       $jobsTotal = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->count();
-       $jobs = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->paginate(100);
+       $jobsTotal = DB::table('jobOffers')->where('categoryId','!=','16')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('categoryId','!=','16')->where('status','approved')->orderBy('id','desc')->count();
+       $jobs = DB::table('jobOffers')->where('categoryId','!=','16')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('categoryId','!=','16')->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->paginate(100);
+       
+       $jobsCities = DB::table('jobOffers')->groupBy('positionCity')->get();
+        
+        return view('jobs.index',['jobs'=>$jobs,"totalCount"=>$jobsTotal,'cities'=>$jobsCities,'categories'=>$categories,'req'=>$req]);
+        
+    }
+    
+    public function showIT(Request $req) {
+
+        $categories = DB::table('jobCategories')->get();
+        
+        if (!$req->filterLocation OR $req->filterLocation=="all") {
+            $cityWhere = "%";
+            $cityWhereDesc = "Všechna města";
+        }
+        else {
+            $cityWhere = $req->filterLocation;
+        }
+        
+        if (!$req->filterCategory OR $req->filterCategory=="all") {
+            $categoryWhere = "%";
+            $categoryWhereDesc = "Všechny kategorie";
+        }
+        else {
+            $categoryWhere = $req->filterCategory;
+        }
+        
+        if (!$req->filterType OR $req->filterType=="all") {
+            $typeWhere = "%";
+            $typeWhereDesc = "Všechny kategorie";
+        }
+        else {
+            $typeWhere = $req->filterType;
+        }
+        
+        if (!$req->filterLang OR $req->filterLang=="all") {
+            $langWhere = "%";
+            $langWhereDesc = "Všechny kategorie";
+        }
+        else {
+            $langWhere = $req->filterLang;
+        }
+       
+       
+       //       $jobs = DB::table('jobOffers')->join('jobCategories', 'jobOffers.categoryId', '=', 'jobCategories.id')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->paginate(100);
+       
+       
+       $jobsTotal = DB::table('jobOffers')->where('categoryId','=','16')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->count();
+       $jobs = DB::table('jobOffers')->where('positionCity','like',$cityWhere)->where('categoryId','like',$categoryWhere)->where('jobType','like',$typeWhere)->where('categoryId','=','16')->where('lang','like',$langWhere)->where('status','approved')->orderBy('id','desc')->paginate(100);
        
        $jobsCities = DB::table('jobOffers')->groupBy('positionCity')->get();
         
@@ -132,9 +181,18 @@ class jobsController extends Controller
     public function DashboardEdit (Request $req) {
         $jobDetail = DB::table('jobOffers')->where('id',$req->id)->first();
         $categories = DB::table('jobCategories')->get();
-        return view('dashboardedit',['job'=>$jobDetail,'categories'=>$categories]);
+        
+        $employeeLinkEdit = env('APP_URL')."/contact/".$jobDetail->id."/".md5($jobDetail->companyContactEmail.$jobDetail->ip.env('APP_HASHSALT'));
+        
+        return view('dashboardedit',['job'=>$jobDetail,'categories'=>$categories,'employeeLinkEdit'=>$employeeLinkEdit]);
     }
 
+	public function editByEmployeee(Request $req) {
+		$jobDetail = DB::table('jobOffers')->where('id',$req->id)->first();
+        $categories = DB::table('jobCategories')->orderBy('categoryName','asc')->get();
+        return view('jobs.edit',['categories'=>$categories,'job'=>$jobDetail]);
+	}
+	
     public function newOffer (Request $req) {
         $categories = DB::table('jobCategories')->orderBy('categoryName','asc')->get();
         return view('jobs.new',['categories'=>$categories]);
@@ -151,6 +209,13 @@ class jobsController extends Controller
   }
     public function newOfferDone (Request $req) {
         return view('jobs.newDone');
+    }
+    
+    public function showWaiting() {
+	    
+	    $jobDetail = DB::table('jobOffers')->where('status','waiting_approval')->count();
+	    $json = array("value"=>$jobDetail);
+	    return json_encode($json);
     }
 
     public function store(Request $req) {
@@ -183,11 +248,16 @@ class jobsController extends Controller
           );  
           
           if ($req->status=="approved") {
-              Mail::to($jobDetail->companyContactEmail)->send(new InzeratSchvalen($jobDetail));
-              //Mail::to("pesatmichal@gmail.com")->send(new InzeratSchvalen($req));
+              Mail::to($req->companyContactEmail)->send(new InzeratSchvalen($req));
+              Mail::to("pesatmichal@gmail.com")->send(new InzeratSchvalen($req));
           }
           
-          return redirect('./dashboard');
+          if (isset($req->editbyEmployer)) {
+		  	return redirect('/new-offer-done');
+          }
+          else {
+          	return redirect('./dashboard');
+          }
           
     }
     else {

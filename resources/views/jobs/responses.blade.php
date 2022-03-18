@@ -77,12 +77,6 @@
                         <a href="#" class="btn btn-tags-sm mb-10 mr-5">
 
 
-                            <option value="not_lang">Neumím Česky, ani Anglicky</option>
-                              <option value="czech">Umím Česky</option>
-                              <option value="czech_basics">Umím základy Češtiny</option>
-                              <option value="english">Umím Anglicky</option>
-                              <option value="other">Jiné</option>
-
 
                             @switch($response->messageFromLang)
                                 @case("czech")

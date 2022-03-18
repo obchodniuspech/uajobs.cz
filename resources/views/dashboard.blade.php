@@ -10,14 +10,16 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
+				<a href="{{ env('APP_URL') }}/dashboard/all">Zobrazit všechny</a>
 
                     <table class="table table-striped">
                         <thead>
+	                        <th>ID</th>
                             <th>Název pozice</th>
-                            <th>Firma</th>
-                            <th>Telefon</th>
-                            <th>E-mail</th>
-                            <th>Přeloženo</th>
+                            <!--<th>Firma</th>-->
+                            <!--<th>Telefon</th>-->
+                            <!--<th>E-mail</th>
+                            <th>Přeloženo</th>-->
                             <th>Stav</th>
                             <th>Datum vložení</th>
                             <th>Upravit</th>
@@ -25,11 +27,12 @@
                         <tbody>
                             @foreach ($jobs AS $thisJob)
                                 <tr>
+                                    <td>{{$thisJob->id}}</td>
                                     <td>{{$thisJob->positionName}}</td>
-                                    <td>{{$thisJob->companyName}}</td>
-                                    <td>{{$thisJob->companyContactPhone}}</td>
+                                    <!--<td>{{$thisJob->companyName}}</td>-->
+                                    <!--<td>{{$thisJob->companyContactPhone}}</td>
                                     <td>{{$thisJob->companyContactEmail}}</td>
-                                    <td>{{$thisJob->translation}}</td>
+                                    <td>{{$thisJob->translation}}</td>-->
                                     <td>{{$thisJob->status}}</td>
                                     <td>{{$thisJob->created_at}}</td>
                                     <td><a href="{{ route('Upravit práci', $thisJob->id) }}">Upravit</a></td>

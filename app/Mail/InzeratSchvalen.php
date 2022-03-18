@@ -32,10 +32,14 @@ class InzeratSchvalen extends Mailable
         $linkHash = md5($this->order->companyContactEmail.$this->order->ip.env('APP_HASHSALT'));
         $link = "https://uajobs.cz/contact/".$this->order->id."/";
         $linkEdit = "https://uajobs.cz/contact/".$this->order->id."/".$linkHash;
+        $linkResponses = "https://uajobs.cz/view-responses/".$this->order->id."/".$linkHash;
         return $this->from('info@uajobs.cz', 'UAjobs.cz')
         ->view('emails.jobapproved')->with([
-             'responsesLink' => $link,
+             'responsesLink' => $linkResponses,
+             'Link' => $link,
              'responsesLinkEdit' => $linkEdit,
+             'jobName' => $this->order->positionName,
+
          ]);
 
 

@@ -2,6 +2,15 @@
 <html class="no-js" lang="en">
 
 <head>
+	
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-K92WJ5X');</script>
+	<!-- End Google Tag Manager -->
+
     <meta charset="utf-8" />
     <title>UAjobs.cz</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -10,7 +19,7 @@
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/shareOnFB3.png" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/theme/favicon.svg" />
     <!-- Template CSS -->
@@ -51,6 +60,12 @@
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K92WJ5X"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
     <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -79,6 +94,21 @@
                                 <li>
                                     <a  href="{{ route('Hledám práci') }}">Hledám práci</a>
                                 </li>-->
+                                
+                                <li class="has-children">
+                                    <a href="{{ env('APP_URL') }}">я шукаю роботу</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{{ env('APP_URL') }}/it-jobs">робота в ІТ</a></li>
+                                        <!--<li><a href="job-grid-2.html">Job Grid 2</a></li>
+                                        <li><a href="job-list.html">Job List</a></li>
+                                        <li class="hr"><span></span></li>
+                                        <li><a href="job-single.html">Job Single 01</a></li>
+                                        <li><a href="job-single-2.html">Job Single 02</a></li>
+                                        <li><a href="job-single-3.html">Job Single 03</a></li>-->
+                                    </ul>
+                                </li>
+                                
+                                
                                 <li>
                                     <a href="{{ route('Nový inzerát') }}"><img src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/czech.png" height="10"> Nabízím práci</a>
 
@@ -113,5 +143,4 @@
     </header>
 
     <!--End header-->
-
 

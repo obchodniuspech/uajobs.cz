@@ -21,8 +21,14 @@
     </section>
 
     <div class="section-box">
-        <div class="container">
+        <div class="container text-center">
+	        <h1 class="section-title-large mb-30 wow animate__ animate__fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">Naši partneři</h1>
             <ul class="list-partners">
+                <li class="wow animate__ animate__fadeInUp hover-up animated" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
+                    <a href="https://elegal.cz" target="_blank">
+                        <figure><img alt="jobhub" src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/partners/elegal.png"></figure>
+                    </a>
+                </li>
                 <li class="wow animate__ animate__fadeInUp hover-up animated" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
                     <a href="https://foxentry.cz" target="_blank">
                         <figure><img alt="jobhub" src="{{ env('APP_URL') }}/jobhub_frontend/assets/imgs/partners/foxentry.png"></figure>

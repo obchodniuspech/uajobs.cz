@@ -185,6 +185,14 @@
                                                   <input type="text" required="required" class="form-control form-icons" value="{{$job->publishTime}}" name="publishTime" placeholder="Dny" />
                                                   <i class="fi-rr-marker"></i>
                                             </div>
+                                            
+                                            <table style="margin-top: 50px;">
+	                                            <tr>
+		                                            <td>
+			                                            {{$employeeLinkEdit}}
+		                                            </td>
+	                                            </tr>
+                                            </table>
 
 
                                         </div>

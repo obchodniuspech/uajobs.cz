@@ -1,7 +1,7 @@
 @include('common.header')
 
 
-<script src="https://www.google.com/recaptcha/api.js?render=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6Lf3t74eAAAAAIvHTiBNwfudSCiVtTSSbzlkbrwd"></script>
 <script>
 // test: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
 // test secret: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
@@ -11,6 +11,8 @@
    }
  </script>
 
+
+@if ($job->status=="approved")
 
 <!-- Content -->
 <main class="main">
@@ -43,21 +45,47 @@
                                 <div class="sidebar-icon-item"><i class="fi-rr-briefcase"></i></div>
                                 <div class="sidebar-text-info ml-10">
                                     <span class="text-description mb-10">Тип роботи</span>
-                                    <strong class="small-heading">{{$job->jobType}}</strong>
+                                    <strong class="small-heading">
+                                    @switch($job->jobType)
+                                                    @case("fullTime")
+                                                        Повний день
+                                                    @break
+                                                    @case("halfTime")
+                                                        Неповний робочий день
+                                                    @break
+                                                    @case("partTime")
+                                                        бригада
+                                                    @break
+                                                    @case("freelance")
+                                                        Позаштатний
+                                                    @break
+                                                    @case("time2time")
+                                                        Невідкладна допомога
+                                                    @break
+                                                    @case("personal")
+                                                        Допомога по дому / приватні оголошення тощо.
+                                                    @break
+
+                                                    @default
+                                                        Other
+                                                @endswitch
+                                    </strong>
                                 </div>
                             </div>
+                            
+                                                        
                             <div class="col-md-4 d-flex mt-sm-15">
                                 <div class="sidebar-icon-item"><i class="fi-rr-marker"></i></div>
                                 <div class="sidebar-text-info ml-10">
                                     <span class="text-description mb-10">Місто</span>
-                                    <strong class="small-heading">{{$job->positionCity}}</strong>
+                                    <strong class="small-heading"><a href="https://www.google.com/maps/search/?api=1&query={{$job->positionCity}}" target="_blank">{{$job->positionCity}}</a></strong>
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex mt-sm-15">
                                 <div class="sidebar-icon-item"><i class="fi-rr-dollar"></i></div>
                                 <div class="sidebar-text-info ml-10">
-                                    <span class="text-description mb-10">Заробітна плата за годину</span>
-                                    <strong class="small-heading">{{$job->salaryFrom}}-{{$job->salaryTo}} Kč/годину</strong>
+                                    <span class="text-description mb-10">Заробітна плата</span>
+                                    <strong class="small-heading">{{$job->salaryFrom}}-{{$job->salaryTo}} Kč</strong>
                                 </div>
                             </div>
                         </div>
@@ -79,13 +107,13 @@
                             </div>
                             @endif
                             @if ($job->publishContact=="1")
-                            <div class="col-md-4 d-flex mt-sm-15">
+                            <!--<div class="col-md-4 d-flex mt-sm-15">
                                 <div class="sidebar-icon-item"><i class="fi-rr-time-fast"></i></div>
                                 <div class="sidebar-text-info ml-10">
                                     <span class="text-description mb-10">Телефон</span>
                                     <strong class="small-heading">{{$job->companyContactPhone }}</strong>
                                 </div>
-                            </div>
+                            </div>-->
                             @endif
                             {{--<div class="col-md-4 d-flex mt-sm-15">
                                 <div class="sidebar-icon-item"><i class="fi-rr-briefcase"></i></div>
@@ -94,6 +122,34 @@
                                     <strong class="small-heading">Designer</strong>
                                 </div>
                             </div>--}}
+                            <div class="col-md-4 d-flex">
+                                <div class="sidebar-icon-item"><i class="fi-rr-briefcase"></i></div>
+                                <div class="sidebar-text-info ml-10">
+                                    <span class="text-description mb-10">Мову</span>
+                                    <strong class="small-heading">
+                                    
+                                                @switch($job->lang)
+                                                    @case("czech_needed")
+                                                        Потрібна чеська мова
+                                                        @break
+
+                                                    @case("not_needed")
+                                                        Мова не потрібна
+                                                    @break
+                                                    @case("czech_basics_needed")
+                                                        Необхідні основи чеської мови
+                                                    @break
+                                                    @case("english_needed")
+                                                        англійська
+                                                    @break
+                                                        Інший
+                                                    @default
+                                                        Jiný jazyk
+                                                @endswitch
+                                    </strong>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row mt-50">
                             <div class="col-lg-6 col-md-12">
@@ -178,7 +234,31 @@
     </section>
 
 </main>
+@else
+<!-- Content -->
+<main class="main">
+    <section class="section-box text-center">
+        <div class="box-head-single bg-2">
+            <div class="container">
+                <div class="avatar-sidebar mx-auto">
+                    <div class="d-flex align-items-center">
+                        <div class="sidebar-info text-start">
+                            <h5 class="sidebar-company">Оголошення більше не активне</h5>
+                            {{--<span class="sidebar-website-text">alithemes.com</span>--}}
+                        </div>
+                    </div>
+                </div>
+                <h3>{{$job->positionNameUA}}</h3>
+                {{--<ul class="breadcrumbs">
+                    <li><a href="#">Home</a></li>
+                    <li>Jobs listing</li>
+                </ul>--}}
+            </div>
+        </div>
+    </section>
 
+</main>
+@endif
 
 
 

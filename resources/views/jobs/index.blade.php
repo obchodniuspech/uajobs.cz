@@ -4,6 +4,14 @@
 
 <!-- Content -->
 <main class="main">
+
+<div class="alert alert-warning" role="alert">
+  <h4 class="alert-heading">Prosím šiřte náš portál dále, jedině tak bude fungovat (<a href="{{ env('APP_URL') }}/jobhub_frontend/assets/pdf/letakCZ.pdf" target="_blank">letáky k šíření zde</a> a <a href="{{ env('APP_URL') }}/jobhub_frontend/assets/pdf/letakUA.pdf" target="_blank">zde UA</a>)<br>Будь ласка, поширюйте наш портал далі, тільки так він працюватиме</h4>
+</div>   
+
+<h1>Робота для біженців з України</h1>
+
+
   <!--  <section class="section-box-2">
         <div class="box-head-single none-bg">
             <div class="container">
@@ -82,8 +90,12 @@
                     <div class="content-page">
                         <div class="box-filters-job mt-15 mb-10">
                             <div class="row">
+	                            <div class="alert alert-primary" role="alert">
+								  <a href="{{ route('Procházet IT inzeráty') }}">Усі посади ІТ виведено в окрему категорію.</a> - 
+								  <a href="{{ route('Procházet IT inzeráty') }}">All IT related jobs have been moved here.</a>
+							   </div>
                                 <div class="col-lg-7">
-                                    <span class="text-small">всього <strong>{{$totalCount}} </strong>пропозицій роботи</span>
+                                    <span class="text-small">всього <strong>{{$totalCount}} </strong>пропозицій роботи - підходить для українців у Чехії</span>
                                 </div>
                                 <div class="col-lg-5 text-lg-end mt-sm-15">
                                     <div class="display-flex2">
@@ -119,7 +131,7 @@
                                         <div class="row">
                                             <div class="col-lg-7">
                                                 <a href="#/"><span class="card-job-top--company">{{$thisJob->companyName}}</span></a>
-                                                <span class="card-job-top--location text-sm"><i class="fi-rr-marker"></i> {{$thisJob->positionCity}}</span>
+                                                <span class="card-job-top--location text-sm"><i class="fi-rr-marker"></i> <a href="https://www.google.com/maps/search/?api=1&query={{$thisJob->positionCity}}" target="_blank">{{$thisJob->positionCity}}</a></span>
                                                 <span class="card-job-top--type-job text-sm"><i class="fi-rr-briefcase"></i> @switch($thisJob->jobType)
                                                     @case("fullTime")
                                                         Повний день
@@ -146,13 +158,13 @@
                                                 <span class="card-job-top--post-time text-sm"><i class="fi-rr-clock"></i> {{$thisJob->created_at}}</span>
                                             </div>
                                             <div class="col-lg-5 text-lg-end">
-                                                <span class="card-job-top--price">{{$thisJob->salaryFrom}}-{{$thisJob->salaryTo}} Kč<span>/hod</span></span>
+                                                <span class="card-job-top--price">{{$thisJob->salaryFrom}}-{{$thisJob->salaryTo}} Kč<span></span></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-job-description mt-20">
-                                   {{$thisJob->positionDescUA}}
+                                   {{substr($thisJob->positionDescUA, 0, 200)}}
                                 </div>
                                 <div class="card-job-bottom mt-25">
                                     <div class="row">

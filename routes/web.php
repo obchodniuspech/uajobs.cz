@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 
 Route::get('/','App\Http\Controllers\JobsController@showAll')->name('Procházet inzeráty');
+Route::get('/it-jobs','App\Http\Controllers\JobsController@showIT')->name('Procházet IT inzeráty');
 //Route::get('/jobdetail/{id}','App\Http\Controllers\JobsController@showDetail')->name('Zobrazit detail');
 Route::get('/contact/{id}','App\Http\Controllers\JobsController@showDetailContact')->name('Kontaktovat');
 Route::get('/new-offer','App\Http\Controllers\JobsController@newOffer')->name('Nový inzerát');
@@ -34,15 +35,25 @@ Route::get('/help-uajobscz','App\Http\Controllers\JobsController@heplUaJobs')->n
 Route::get('/kontakt','App\Http\Controllers\JobsController@contact')->name('Kontakt UAjobs.cz');
 Route::get('/help-ua','App\Http\Controllers\JobsController@heplUa')->name('Další pomoc UA');
 Route::get('/view-responses/{id}/{hash}','App\Http\Controllers\JobsController@showResponses')->name('Zobrazit odpovědi');
+Route::get('/api-waiting','App\Http\Controllers\JobsController@showWaiting')->name('Zobrazit čekající');
+
+Route::get('/contact/{id}/{hash}','App\Http\Controllers\JobsController@editByEmployeee')->name('Upravit inzerentem');
 
 
 
 Route::get('/dashboard', function () {
+    $jobsTotal = DB::table('jobOffers')->where('status','waiting_approval')->orderBy('id','desc')->count();;
+    $jobs = DB::table('jobOffers')->where('status','waiting_approval')->orderBy('id','desc')->paginate(100);
+
+    return view('dashboard',['jobs'=>$jobs,"totalCount"=>$jobsTotal]);
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/dashboard/all', function () {
     $jobsTotal = DB::table('jobOffers')->orderBy('id','desc')->count();;
     $jobs = DB::table('jobOffers')->orderBy('id','desc')->paginate(100);
 
     return view('dashboard',['jobs'=>$jobs,"totalCount"=>$jobsTotal]);
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard all');
 
 
 Route::get('/dashboard/edit/{id}','App\Http\Controllers\JobsController@DashboardEdit')->name('Upravit práci')->middleware(['auth']);
